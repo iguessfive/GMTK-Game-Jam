@@ -14,6 +14,9 @@ var distance_moved := 0.0
 @onready var points_travelled: Array = persisent_body.points
 @onready var anchor: Transform2D = $PersistentBody.transform
 
+func _ready() -> void:
+	level.add_travelled_tile(global_position)
+
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	persisent_body.global_transform = anchor
@@ -44,6 +47,8 @@ func _physics_process(delta: float) -> void:
 		distance_moved = 0.0
 		has_moved_finished = true
 		direction = Vector2.ZERO
+		level.add_travelled_tile(global_position)
+		print(level.travelled_tiles)
 
 	if direction.length() > 0:
 		move_and_slide()
