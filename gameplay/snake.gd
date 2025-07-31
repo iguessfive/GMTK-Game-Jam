@@ -21,10 +21,13 @@ func _process(delta: float) -> void:
 @warning_ignore("unused_parameter")
 func _physics_process(delta: float) -> void:
 
-	if has_moved_finished: # get input only when the player has finished moving
+	if has_moved_finished and direction == Vector2.ZERO: # get input only when the player has finished moving
 		var direction_x = Input.get_axis("move_left", "move_right")
 		var direction_y = Input.get_axis("move_up", "move_down")
-		direction = Vector2(direction_x, direction_y).normalized()
+		if direction_x != 0.0:
+			direction = Vector2(direction_x, 0).normalized()
+		elif direction_y != 0.0:
+			direction = Vector2(0, direction_y).normalized()
 
 	velocity = Vector2.ZERO
 	if abs(direction.x) > 0.0:
@@ -47,7 +50,4 @@ func _physics_process(delta: float) -> void:
 	
 	if direction.length() > 0:
 		point_current = head.global_position 
-		if points_travelled.has(point_current.round()):
-			points_travelled.erase(point_current)
-			print("erasing")
 		persisent_body.add_point(point_current) # check if point is in 
