@@ -1,9 +1,13 @@
 extends CharacterBody2D
 
 @export var speed: float = 200.0
+@export var grid_size: float = 64.0
+@export var level: TileMapLayer
 
 var point_current := Vector2()
 var direction := Vector2()
+var has_moved_finished := true
+var distance_moved := 0.0
 
 @onready var head: Sprite2D = $Head
 @onready var persisent_body: Line2D = $PersistentBody
@@ -16,18 +20,29 @@ func _process(delta: float) -> void:
 
 @warning_ignore("unused_parameter")
 func _physics_process(delta: float) -> void:
-	var direction_x = Input.get_axis("move_left", "move_right")
-	var direction_y = Input.get_axis("move_up", "move_down")
 
-	direction = Vector2(direction_x, direction_y).normalized()
-	
+	if has_moved_finished: # get input only when the player has finished moving
+		var direction_x = Input.get_axis("move_left", "move_right")
+		var direction_y = Input.get_axis("move_up", "move_down")
+		direction = Vector2(direction_x, direction_y).normalized()
+
 	velocity = Vector2.ZERO
-	if abs(direction_x) > 0.0:
-		velocity.x = direction_x * speed
-	elif abs(direction_y) > 0.0:
-		velocity.y = direction_y * speed
-		
-	if direction.length() > 0: 
+	if abs(direction.x) > 0.0:
+		velocity.x = direction.x * speed
+		has_moved_finished = false
+	elif abs(direction.y) > 0.0:
+		velocity.y = direction.y * speed
+		has_moved_finished = false
+	
+	if not has_moved_finished:
+		distance_moved += speed * delta
+
+	if distance_moved >= grid_size:
+		distance_moved = 0.0
+		has_moved_finished = true
+		direction = Vector2.ZERO
+
+	if direction.length() > 0:
 		move_and_slide()
 	
 	if direction.length() > 0:
@@ -36,5 +51,3 @@ func _physics_process(delta: float) -> void:
 			points_travelled.erase(point_current)
 			print("erasing")
 		persisent_body.add_point(point_current) # check if point is in 
-	
-	

@@ -5,10 +5,14 @@
 
 [node name="OuroborusGame" type="Node2D"]
 
-[node name="Snake" parent="." instance=ExtResource("1_j3373")]
+[node name="Snake" parent="." node_paths=PackedStringArray("level") instance=ExtResource("1_j3373")]
 z_index = 5
 position = Vector2(160, 96)
+level = NodePath("../ExampleLevel")
 
-[node name="TileMapLayer" parent="." instance=ExtResource("2_x3wgt")]
+[node name="PersistentBody" parent="Snake" index="1"]
+z_index = -1
+
+[node name="ExampleLevel" parent="." instance=ExtResource("2_x3wgt")]
 
 [editable path="Snake"]
