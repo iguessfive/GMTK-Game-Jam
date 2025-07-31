@@ -16,13 +16,25 @@ func _process(delta: float) -> void:
 
 @warning_ignore("unused_parameter")
 func _physics_process(delta: float) -> void:
-	direction = Input.get_vector("move_left", "move_right", "move_up", "move_down").normalized()
+	var direction_x = Input.get_axis("move_left", "move_right")
+	var direction_y = Input.get_axis("move_up", "move_down")
 
+	direction = Vector2(direction_x, direction_y).normalized()
+
+	if abs(direction_x) > 0.0:
+		print(direction_x)
+		velocity.x = direction_x * speed
+	elif abs(direction_y) > 0.0:
+		velocity.y = direction_y * speed
+	
 	if direction.length() > 0:
-		velocity = direction * speed
+		move_and_slide()
+	
+	if direction.length() > 0:
 		point_current = head.global_position 
 		if points_travelled.has(point_current.round()):
 			points_travelled.erase(point_current)
 			print("erasing")
 		persisent_body.add_point(point_current) # check if point is in 
-		move_and_slide()
+	
+	
