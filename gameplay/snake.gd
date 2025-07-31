@@ -55,4 +55,4 @@ func _physics_process(delta: float) -> void:
 	
 	if direction.length() > 0:
 		point_current = head.global_position 
-		persisent_body.add_point(point_current) # check if point is in 
+		persisent_body.add_point(point_current)
