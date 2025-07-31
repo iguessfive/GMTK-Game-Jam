@@ -2,7 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://bomryssos12v2" path="res://gameplay/snake.tscn" id="1_j3373"]
 [ext_resource type="PackedScene" uid="uid://ba870ecmck1yx" path="res://gameplay/level_example.tscn" id="2_x3wgt"]
-[ext_resource type="PackedScene" uid="uid://bv0tr0ku8dldd" path="res://gameplay/pick_up.tscn" id="3_2yve2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_x3wgt"]
+font_size = 64
+font_color = Color(0.254902, 0.898039, 0.745098, 1)
 
 [node name="OuroborusGame" type="Node2D"]
 
@@ -16,15 +19,35 @@ z_index = -1
 
 [node name="ExampleLevel" parent="." instance=ExtResource("2_x3wgt")]
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+layer = 10
+visible = false
 
-[node name="PickUp" parent="Node2D" instance=ExtResource("3_2yve2")]
-position = Vector2(416, 224)
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
-[node name="PickUp2" parent="Node2D" instance=ExtResource("3_2yve2")]
-position = Vector2(224, 352)
-
-[node name="PickUp3" parent="Node2D" instance=ExtResource("3_2yve2")]
-position = Vector2(608, 160)
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "You Win"
+label_settings = SubResource("LabelSettings_x3wgt")
 
 [editable path="Snake"]
+[editable path="ExampleLevel"]

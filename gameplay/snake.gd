@@ -57,9 +57,11 @@ func _physics_process(delta: float) -> void:
 		persisent_body.add_point(head.global_position )
 
 func _on_collector_area_entered(area: Area2D) -> void:
-	if area.is_in_group("pickups"):
-		area.queue_free.call_deferred()
-		# collector.collect_pickup()  # Call collector's method to handle the pickup
+	if area.is_in_group("collectible"):
+		area.destroy()  # handle pickups specific logic, sfx, animation, etc.
 		# if all items are collected, you can allow for level completion
-	else:
-		print_debug("Entered an area that is not a pickup.")
+		level.collect()
+		print(level.get_collectible_count())
+		if level.get_collectible_count() == 0:
+			print_debug("You can win now, all pickups collected!")
+			level.can_win = true # once all items are collected
