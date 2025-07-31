@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bomryssos12v2"]
+
+[ext_resource type="Script" uid="uid://crq5m74leirq4" path="res://gameplay/snake.gd" id="1_i4p4t"]
+
+[node name="Snake" type="CharacterBody2D"]
+script = ExtResource("1_i4p4t")
