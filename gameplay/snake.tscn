@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://bomryssos12v2"]
+[gd_scene load_steps=3 format=3 uid="uid://bomryssos12v2"]
 
 [ext_resource type="Script" uid="uid://crq5m74leirq4" path="res://gameplay/snake.gd" id="1_i4p4t"]
+[ext_resource type="Texture2D" uid="uid://dnya2nb2qnruj" path="res://icon.svg" id="2_yyr6o"]
 
 [node name="Snake" type="CharacterBody2D"]
 script = ExtResource("1_i4p4t")
+
+[node name="Head" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_yyr6o")
+
+[node name="PersistentBody" type="Line2D" parent="."]
