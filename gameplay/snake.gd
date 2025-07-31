@@ -20,14 +20,14 @@ func _physics_process(delta: float) -> void:
 	var direction_y = Input.get_axis("move_up", "move_down")
 
 	direction = Vector2(direction_x, direction_y).normalized()
-
+	
+	velocity = Vector2.ZERO
 	if abs(direction_x) > 0.0:
-		print(direction_x)
 		velocity.x = direction_x * speed
 	elif abs(direction_y) > 0.0:
 		velocity.y = direction_y * speed
-	
-	if direction.length() > 0:
+		
+	if direction.length() > 0: 
 		move_and_slide()
 	
 	if direction.length() > 0:
