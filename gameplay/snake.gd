@@ -10,6 +10,7 @@ var direction := Vector2()
 @onready var points_travelled: Array = persisent_body.points
 @onready var anchor: Transform2D = $PersistentBody.transform
 
+@warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	persisent_body.global_transform = anchor
 
@@ -19,5 +20,9 @@ func _physics_process(delta: float) -> void:
 
 	if direction.length() > 0:
 		velocity = direction * speed
-		persisent_body.add_point(head.global_position)
+		point_current = head.global_position 
+		if points_travelled.has(point_current.round()):
+			points_travelled.erase(point_current)
+			print("erasing")
+		persisent_body.add_point(point_current) # check if point is in 
 		move_and_slide()

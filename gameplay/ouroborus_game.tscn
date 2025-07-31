@@ -1,9 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://bmnmfp0mc1wjs"]
+[gd_scene load_steps=3 format=3 uid="uid://bmnmfp0mc1wjs"]
 
 [ext_resource type="PackedScene" uid="uid://bomryssos12v2" path="res://gameplay/snake.tscn" id="1_j3373"]
+[ext_resource type="PackedScene" uid="uid://ba870ecmck1yx" path="res://gameplay/level_example.tscn" id="2_x3wgt"]
 
 [node name="OuroborusGame" type="Node2D"]
 
 [node name="Snake" parent="." instance=ExtResource("1_j3373")]
+z_index = 5
+position = Vector2(160, 96)
+
+[node name="TileMapLayer" parent="." instance=ExtResource("2_x3wgt")]
 
 [editable path="Snake"]
