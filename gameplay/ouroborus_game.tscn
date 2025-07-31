@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmnmfp0mc1wjs"]
+[gd_scene load_steps=4 format=3 uid="uid://bmnmfp0mc1wjs"]
 
 [ext_resource type="PackedScene" uid="uid://bomryssos12v2" path="res://gameplay/snake.tscn" id="1_j3373"]
 [ext_resource type="PackedScene" uid="uid://ba870ecmck1yx" path="res://gameplay/level_example.tscn" id="2_x3wgt"]
+[ext_resource type="PackedScene" uid="uid://bv0tr0ku8dldd" path="res://gameplay/pick_up.tscn" id="3_2yve2"]
 
 [node name="OuroborusGame" type="Node2D"]
 
@@ -14,5 +15,16 @@ level = NodePath("../ExampleLevel")
 z_index = -1
 
 [node name="ExampleLevel" parent="." instance=ExtResource("2_x3wgt")]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="PickUp" parent="Node2D" instance=ExtResource("3_2yve2")]
+position = Vector2(416, 224)
+
+[node name="PickUp2" parent="Node2D" instance=ExtResource("3_2yve2")]
+position = Vector2(224, 352)
+
+[node name="PickUp3" parent="Node2D" instance=ExtResource("3_2yve2")]
+position = Vector2(608, 160)
 
 [editable path="Snake"]

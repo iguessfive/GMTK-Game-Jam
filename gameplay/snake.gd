@@ -4,7 +4,6 @@ extends CharacterBody2D
 @export var grid_size: float = 64.0
 @export var level: TileMapLayer
 
-var point_current := Vector2()
 var direction := Vector2()
 var has_moved_finished := true
 var distance_moved := 0.0
@@ -13,9 +12,11 @@ var distance_moved := 0.0
 @onready var persisent_body: Line2D = $PersistentBody
 @onready var points_travelled: Array = persisent_body.points
 @onready var anchor: Transform2D = $PersistentBody.transform
+@onready var collector := $Collector
 
 func _ready() -> void:
-	level.add_travelled_tile(global_position)
+	if level != null:
+		level.add_travelled_tile(global_position)
 
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
@@ -47,12 +48,18 @@ func _physics_process(delta: float) -> void:
 		distance_moved = 0.0
 		has_moved_finished = true
 		direction = Vector2.ZERO
-		level.add_travelled_tile(global_position)
-		print(level.travelled_tiles)
+		level.add_travelled_tile(global_position) # record the tile travelled
 
 	if direction.length() > 0:
 		move_and_slide()
 	
 	if direction.length() > 0:
-		point_current = head.global_position 
-		persisent_body.add_point(point_current)
+		persisent_body.add_point(head.global_position )
+
+func _on_collector_area_entered(area: Area2D) -> void:
+	if area.is_in_group("pickups"):
+		area.queue_free.call_deferred()
+		# collector.collect_pickup()  # Call collector's method to handle the pickup
+		# if all items are collected, you can allow for level completion
+	else:
+		print_debug("Entered an area that is not a pickup.")

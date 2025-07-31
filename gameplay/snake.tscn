@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bomryssos12v2"]
+[gd_scene load_steps=4 format=3 uid="uid://bomryssos12v2"]
 
 [ext_resource type="Script" uid="uid://crq5m74leirq4" path="res://gameplay/snake.gd" id="1_i4p4t"]
 [ext_resource type="Texture2D" uid="uid://dnya2nb2qnruj" path="res://icon.svg" id="2_yyr6o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yyr6o"]
+size = Vector2(64, 62)
 
 [node name="Snake" type="CharacterBody2D"]
 script = ExtResource("1_i4p4t")
@@ -11,3 +14,13 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_yyr6o")
 
 [node name="PersistentBody" type="Line2D" parent="."]
+
+[node name="Collector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collector"]
+shape = SubResource("RectangleShape2D_yyr6o")
+
+[connection signal="area_entered" from="Collector" to="." method="_on_collector_area_entered"]

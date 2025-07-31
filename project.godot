@@ -47,6 +47,10 @@ throw={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_2="Pickups"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
