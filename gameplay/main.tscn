@@ -9,3 +9,5 @@
 position = Vector2(42, 41)
 
 [node name="Body2D" parent="player" instance=ExtResource("2_h2yge")]
+
+[editable path="player/Body2D"]

@@ -5,3 +5,5 @@
 [node name="OuroborusGame" type="Node2D"]
 
 [node name="Snake" parent="." instance=ExtResource("1_j3373")]
+
+[editable path="Snake"]

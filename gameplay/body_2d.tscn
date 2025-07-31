@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cuuedp7osi2rm"]
 
-[ext_resource type="Script" uid="uid://dv6ac0s0rsywx" path="res://body_2d.gd" id="1_8gy4m"]
+[ext_resource type="Script" uid="uid://dv6ac0s0rsywx" path="res://gameplay/body_2d.gd" id="1_8gy4m"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_8gy4m"]
 

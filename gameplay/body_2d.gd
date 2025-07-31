@@ -9,5 +9,5 @@ func _process(_delta):
 	global_position = Vector2(0,0)
 	global_rotation = 0
 	
-	point = get_parent().global_position
+	point = get_parent().global_position # of type `window` when run on its own scene
 	add_point(point)
