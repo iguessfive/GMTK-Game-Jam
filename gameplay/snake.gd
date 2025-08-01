@@ -28,6 +28,16 @@ func _physics_process(delta: float) -> void:
 	if has_moved_finished and direction == Vector2.ZERO: # get input only when the player has finished moving
 		var direction_x = Input.get_axis("move_left", "move_right")
 		var direction_y = Input.get_axis("move_up", "move_down")
+		if direction_x > 0:
+			head.rotation_degrees = 90
+		elif direction_x < 0:
+			head.rotation_degrees = -90
+		
+		if direction_y > 0:
+			head.rotation_degrees = -180
+		elif direction_y < 0:
+			head.rotation_degrees = 0
+		
 		if direction_x != 0.0:
 			direction = Vector2(direction_x, 0).normalized()
 		elif direction_y != 0.0:
