@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuuedp7osi2rm"]
+
+[ext_resource type="Script" uid="uid://dv6ac0s0rsywx" path="res://gameplay/body_2d.gd" id="1_8gy4m"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_8gy4m"]
+
+[node name="Body2D" type="Line2D"]
+joint_mode = 2
+script = ExtResource("1_8gy4m")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("SegmentShape2D_8gy4m")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=4 uid="uid://ba870ecmck1yx"]
+
+[ext_resource type="Texture2D" uid="uid://bwbh5tmcnhu1j" path="res://assets/tileset 2.0.png" id="1_jqd86"]
+[ext_resource type="Script" uid="uid://cvnudra0dylww" path="res://gameplay/level.gd" id="2_16cv5"]
+[ext_resource type="Script" uid="uid://dkv73t6llhsg5" path="res://gameplay/collectibles_manager.gd" id="3_jqd86"]
+[ext_resource type="PackedScene" uid="uid://bv0tr0ku8dldd" path="res://gameplay/collectibles.tscn" id="4_4t1ad"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4t1ad"]
+texture = ExtResource("1_jqd86")
+4:0/size_in_atlas = Vector2i(4, 4)
+4:0/0 = 0
+8:0/size_in_atlas = Vector2i(4, 4)
+8:0/0 = 0
+12:0/size_in_atlas = Vector2i(4, 4)
+12:0/0 = 0
+12:4/size_in_atlas = Vector2i(4, 4)
+12:4/0 = 0
+4:4/size_in_atlas = Vector2i(4, 4)
+4:4/0 = 0
+4:8/size_in_atlas = Vector2i(4, 4)
+4:8/0 = 0
+8:8/size_in_atlas = Vector2i(4, 4)
+8:8/0 = 0
+12:8/size_in_atlas = Vector2i(4, 4)
+12:8/0 = 0
+0:12/size_in_atlas = Vector2i(4, 4)
+0:12/0 = 0
+4:12/size_in_atlas = Vector2i(4, 4)
+4:12/0 = 0
+8:12/size_in_atlas = Vector2i(4, 4)
+8:12/0 = 0
+12:12/size_in_atlas = Vector2i(4, 4)
+12:12/0 = 0
+12:16/size_in_atlas = Vector2i(4, 4)
+12:16/0 = 0
+8:16/size_in_atlas = Vector2i(4, 4)
+8:16/0 = 0
+4:16/size_in_atlas = Vector2i(4, 4)
+4:16/0 = 0
+0:16/size_in_atlas = Vector2i(4, 4)
+0:16/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_rpepa"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_4t1ad")
+
+[node name="LevelExample" type="TileMapLayer" node_paths=PackedStringArray("collectible_manager")]
+tile_map_data = PackedByteArray("AAACAAEAAAAEAAAAAAADAAEAAAAIAAAAAAAEAAEAAAAIAAAAAAAFAAEAAAAIAAAAAAAGAAEAAAAIAAAAAAAHAAEAAAAIAAAAAAAIAAEAAAAIAAAAAAAJAAEAAAAMAAAAAAAJAAIAAAAMAAQAAAAJAAMAAAAMAAQAAAACAAIAAAAEAAQAAAACAAMAAAAEAAQAAAACAAQAAAAEAAQAAAACAAUAAAAEAAgAAAADAAUAAAAIAAgAAAAEAAUAAAAIAAgAAAAFAAUAAAAIAAgAAAAGAAUAAAAIAAgAAAAHAAUAAAAIAAAAAAAIAAUAAAAIAAgAAAAJAAUAAAAMAAgAAAAJAAQAAAAMAAQAAAAIAAQAAAAEAAQAAAAGAAQAAAAMAAQAAAAFAAQAAAAEAAwAAAAEAAQAAAAIAAAAAAADAAMAAAAMAAQAAAAFAAMAAAAEAAQAAAAGAAMAAAAEAAwAAAAHAAMAAAAIAAgAAAAIAAMAAAAEAAwAAAAIAAIAAAAEAAwAAAAHAAIAAAAMAAwAAAAGAAIAAAAEAAwAAAAFAAIAAAAIAAwAAAAEAAIAAAAIAAgAAAADAAIAAAAMAAwAAAADAAQAAAAIAAwAAAAEAAMAAAAMABAAAAAHAAQAAAAIABAAAAACAAYAAAAMABAAAAADAAYAAAAMABAAAAAEAAYAAAAIABAAAAAFAAYAAAAMABAAAAAGAAYAAAAMABAAAAAHAAYAAAAMABAAAAAIAAYAAAAAABAAAAAJAAYAAAAMABAAAAAKAAYAAAAMABAAAAAKAAUAAAAMABAAAAAKAAQAAAAMABAAAAAKAAMAAAAIABAAAAAKAAIAAAAMABAAAAALAAIAAAAEABAAAAALAAEAAAAIABAAAAALAAAAAAAMABAAAAAKAAAAAAAIABAAAAAKAAEAAAAMABAAAAAJAAAAAAAMABAAAAAIAAAAAAAMABAAAAAHAAAAAAAMABAAAAAGAAAAAAAMABAAAAAFAAAAAAAMABAAAAAEAAAAAAAAABAAAAADAAAAAAAMABAAAAACAAAAAAAMABAAAAABAAAAAAAMABAAAAABAAEAAAAMABAAAAAAAAEAAAAEABAAAAAAAAIAAAAMABAAAAAAAAMAAAAMABAAAAAAAAQAAAAAABAAAAABAAQAAAAMABAAAAABAAUAAAAMABAAAAABAAYAAAAEABAAAAAAAAYAAAAMABAAAAAAAAUAAAAIABAAAAABAAIAAAAIABAAAAABAAMAAAAMABAAAAAAAAAAAAAMABAAAAALAAMAAAAMABAAAAALAAQAAAAMABAAAAALAAUAAAAAABAAAAALAAYAAAAMABAAAAA=")
+tile_set = SubResource("TileSet_rpepa")
+script = ExtResource("2_16cv5")
+collectible_manager = NodePath("CollectibleManager")
+
+[node name="CollectibleManager" type="Node2D" parent="."]
+script = ExtResource("3_jqd86")
+
+[node name="Collectibles" parent="CollectibleManager" instance=ExtResource("4_4t1ad")]
+position = Vector2(416, 224)
+
+[node name="Collectibles2" parent="CollectibleManager" instance=ExtResource("4_4t1ad")]
+position = Vector2(224, 352)
+
+[node name="Collectibles3" parent="CollectibleManager" instance=ExtResource("4_4t1ad")]
+position = Vector2(608, 160)
