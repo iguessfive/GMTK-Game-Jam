@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7om10vhhj4rl"]
+
+[ext_resource type="PackedScene" uid="uid://bomryssos12v2" path="res://gameplay/snake.tscn" id="1_h0s8t"]
+[ext_resource type="PackedScene" uid="uid://ba870ecmck1yx" path="res://gameplay/level_example.tscn" id="2_y1cqu"]
+
+[node name="OuroborousGame" type="Node2D"]
+
+[node name="Snake" parent="." node_paths=PackedStringArray("level", "hazards") instance=ExtResource("1_h0s8t")]
+position = Vector2(736, 480)
+level = NodePath("../LevelExample")
+hazards = NodePath("../LevelExample/HazardLayer")
+
+[node name="LevelExample" parent="." instance=ExtResource("2_y1cqu")]
+z_index = -1
+position = Vector2(0, -1)
+
+[editable path="Snake"]
+[editable path="LevelExample"]

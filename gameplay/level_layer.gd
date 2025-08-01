@@ -1,4 +1,4 @@
-extends TileMapLayer
+class_name Level extends TileMapLayer
 
 @export var collectible_manager: Node2D
 
