@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" uid="uid://ckod3hdyi75k8" path="res://gameplay/hazard_layer.gd" id="1_c2au5"]
 
-[node name="HazardLayer" type="TileMapLayer"]
+[node name="HazardLayer" type="TileMapLayer" groups=["hazards"]]
 script = ExtResource("1_c2au5")

@@ -74,5 +74,6 @@ func _on_collector_area_entered(area: Area2D) -> void:
 			level.can_win = true # once all items are collected
 
 func _on_hazard_sensor_body_entered(body: Node2D) -> void:
-	print(body.name, " has entered the hazard area!")
-	get_tree().reload_current_scene.call_deferred()
+	if body.is_in_group("hazards"):
+		print_debug("You have entered a hazard area!")
+		get_tree().reload_current_scene.call_deferred()

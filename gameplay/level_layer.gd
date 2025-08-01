@@ -18,7 +18,7 @@ func add_travelled_tile(point: Vector2) -> void:
 		if can_win:
 			print("Level completed! You won.")
 			# Trigger a win condition, level clear & win sfx
-			%CanvasLayer.visible = true
+			$Label.visible = true
 		else:
 			print_debug("You cannot win yet, collect all pickups first.")
 			get_tree().reload_current_scene.call_deferred()
