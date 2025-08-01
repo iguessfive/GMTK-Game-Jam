@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=4 uid="uid://ba870ecmck1yx"]
+
+[ext_resource type="Texture2D" uid="uid://jwkdmxgnkeb1" path="res://assets/path_tiles_64px.png" id="1_72un8"]
+[ext_resource type="Script" uid="uid://cvnudra0dylww" path="res://gameplay/level.gd" id="2_16cv5"]
+[ext_resource type="Script" uid="uid://dkv73t6llhsg5" path="res://gameplay/collectibles_manager.gd" id="3_jqd86"]
+[ext_resource type="PackedScene" uid="uid://bv0tr0ku8dldd" path="res://gameplay/collectibles.tscn" id="4_4t1ad"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_16cv5"]
+texture = ExtResource("1_72un8")
+texture_region_size = Vector2i(64, 64)
+2:1/0 = 0
+1:1/0 = 0
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+3:1/0 = 0
+3:2/0 = 0
+3:3/0 = 0
+2:3/0 = 0
+1:3/0 = 0
+0:3/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+0:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_elynw"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_16cv5")
+
+[node name="LevelExample" type="TileMapLayer" node_paths=PackedStringArray("collectible_manager")]
+tile_map_data = PackedByteArray("AAACAAEAAAAAAAEAAAADAAEAAAAAAAEAAAAEAAEAAAAAAAEAAAAFAAEAAAAAAAEAAAAGAAEAAAAAAAEAAAAHAAEAAAAAAAEAAAAIAAEAAAAAAAEAAAAJAAEAAAAAAAEAAAAJAAIAAAAAAAEAAAAJAAMAAAAAAAEAAAACAAIAAAAAAAEAAAACAAMAAAAAAAEAAAACAAQAAAAAAAEAAAACAAUAAAAAAAEAAAADAAUAAAAAAAEAAAAEAAUAAAAAAAEAAAAFAAUAAAAAAAEAAAAGAAUAAAAAAAEAAAAHAAUAAAAAAAEAAAAIAAUAAAAAAAEAAAAJAAUAAAAAAAEAAAAJAAQAAAAAAAEAAAAIAAQAAAAAAAEAAAAGAAQAAAAAAAEAAAAFAAQAAAAAAAEAAAAEAAQAAAAAAAEAAAADAAQAAAAAAAEAAAADAAMAAAAAAAEAAAAFAAMAAAAAAAEAAAAGAAMAAAAAAAEAAAAHAAMAAAAAAAEAAAAIAAMAAAAAAAEAAAAIAAIAAAAAAAEAAAAHAAIAAAAAAAEAAAAGAAIAAAAAAAEAAAAFAAIAAAAAAAEAAAAEAAIAAAAAAAEAAAADAAIAAAAAAAEAAAA=")
+tile_set = SubResource("TileSet_elynw")
+script = ExtResource("2_16cv5")
+collectible_manager = NodePath("CollectibleManager")
+
+[node name="CollectibleManager" type="Node2D" parent="."]
+script = ExtResource("3_jqd86")
+
+[node name="Collectibles" parent="CollectibleManager" instance=ExtResource("4_4t1ad")]
+position = Vector2(416, 224)
+
+[node name="Collectibles2" parent="CollectibleManager" instance=ExtResource("4_4t1ad")]
+position = Vector2(224, 352)
+
+[node name="Collectibles3" parent="CollectibleManager" instance=ExtResource("4_4t1ad")]
+position = Vector2(608, 160)

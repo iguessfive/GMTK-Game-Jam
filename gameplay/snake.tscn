@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bomryssos12v2"]
+
+[ext_resource type="Script" uid="uid://crq5m74leirq4" path="res://gameplay/snake.gd" id="1_i4p4t"]
+[ext_resource type="Texture2D" uid="uid://c7v6bxtln6xqg" path="res://assets/snaken.png" id="2_yyr6o"]
+
+[sub_resource type="Curve" id="Curve_yyr6o"]
+_data = [Vector2(0, 0.213483), 0.0, 0.0, 0, 0, Vector2(0.531915, 0.47191), 0.844944, 0.844944, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yyr6o"]
+size = Vector2(64, 62)
+
+[node name="Snake" type="CharacterBody2D"]
+script = ExtResource("1_i4p4t")
+
+[node name="Head" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_yyr6o")
+
+[node name="PersistentBody" type="Line2D" parent="."]
+width_curve = SubResource("Curve_yyr6o")
+default_color = Color(0.203443, 0.26793, 0.160476, 1)
+
+[node name="Collector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collector"]
+shape = SubResource("RectangleShape2D_yyr6o")
+
+[connection signal="area_entered" from="Collector" to="." method="_on_collector_area_entered"]
