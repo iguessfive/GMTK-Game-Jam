@@ -72,3 +72,7 @@ func _on_collector_area_entered(area: Area2D) -> void:
 		if level.get_collectible_count() == 0:
 			print_debug("You can win now, all pickups collected!")
 			level.can_win = true # once all items are collected
+
+func _on_hazard_sensor_body_entered(body: Node2D) -> void:
+	print(body.name, " has entered the hazard area!")
+	get_tree().reload_current_scene.call_deferred()

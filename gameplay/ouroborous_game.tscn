@@ -16,3 +16,4 @@ position = Vector2(0, -1)
 
 [editable path="Snake"]
 [editable path="LevelExample"]
+[editable path="LevelExample/CollectibleManager/Collectibles"]
