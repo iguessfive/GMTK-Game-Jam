@@ -42,5 +42,7 @@ collision_mask = 4
 shape = SubResource("CircleShape2D_7yc6v")
 debug_color = Color(0.796714, 0.219875, 0.182034, 0.337255)
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
 [connection signal="area_entered" from="Collector" to="." method="_on_collector_area_entered"]
 [connection signal="body_entered" from="HazardSensor" to="." method="_on_hazard_sensor_body_entered"]

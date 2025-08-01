@@ -71,9 +71,13 @@ func _on_collector_area_entered(area: Area2D) -> void:
 		print(level.get_collectible_count())
 		if level.get_collectible_count() == 0:
 			print_debug("You can win now, all pickups collected!")
-			level.can_win = true # once all items are collected
+			level.can_win = true
+			level.cleared_challenge() # once all items are collected
 
 func _on_hazard_sensor_body_entered(body: Node2D) -> void:
 	if body.is_in_group("hazards"):
 		print_debug("You have entered a hazard area!")
-		get_tree().reload_current_scene.call_deferred()
+		level.end(false)  # loss on hazard collision
+
+func disble_input() -> void:
+	set_physics_process(false)

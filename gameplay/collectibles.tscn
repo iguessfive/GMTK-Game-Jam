@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bv0tr0ku8dldd"]
+[gd_scene load_steps=5 format=3 uid="uid://bv0tr0ku8dldd"]
 
 [ext_resource type="Script" uid="uid://dqhepry1npuvv" path="res://gameplay/collectibles.gd" id="1_6bc5v"]
 [ext_resource type="Texture2D" uid="uid://dxkowf22ubbva" path="res://assets/rupee.png" id="2_o0feu"]
+[ext_resource type="AudioStream" uid="uid://d2oggc42wdbv8" path="res://assets/sfx/pick_up.ogg" id="3_ollpg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n6a7h"]
 radius = 22.0907
@@ -17,3 +18,6 @@ texture = ExtResource("2_o0feu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_n6a7h")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ollpg")

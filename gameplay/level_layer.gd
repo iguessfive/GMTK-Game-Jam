@@ -1,9 +1,21 @@
 class_name Level extends TileMapLayer
 
+const COMPLETED_COLLECTION = preload("res://assets/sfx/completed_collection.ogg")
+const COMPLETED_LEVEL = preload("res://assets/sfx/completed_level.ogg")
+const FAILED_LEVEL = preload("res://assets/sfx/failed_level.ogg")
+
+@export var player_reference: CharacterBody2D
 @export var collectible_manager: Node2D
 
 var travelled_tiles: Dictionary = {}
 var can_win := false
+
+var sfx: AudioStreamPlayer
+
+func _ready() -> void:
+	sfx = AudioStreamPlayer.new()
+	add_child(sfx)
+	sfx.finished.connect(restart)
 
 ## Used to record the tiles the player has travelled
 func add_travelled_tile(point: Vector2) -> void:
@@ -18,18 +30,38 @@ func add_travelled_tile(point: Vector2) -> void:
 		if can_win:
 			print("Level completed! You won.")
 			# Trigger a win condition, level clear & win sfx
-			$Label.visible = true
-		else:
+			end(true)
+		else: # if on first tile but not all pickups collected
 			print_debug("You cannot win yet, collect all pickups first.")
-			get_tree().reload_current_scene.call_deferred()
-			# Lose sfx & play again button
+			end(false)
+			# play again or select another level
 	else: 
 		# GAME OVER condition
 		print_debug("Game Over! You have already travelled this tile.")
-		get_tree().reload_current_scene.call_deferred()
+		end(false)
 
 func get_collectible_count() -> int:
 	return collectible_manager.collectible_count
 
 func collect() -> void:
 	collectible_manager.collectible_count -= 1
+
+func end(has_won: bool) -> void: # end level with win or lose condition
+	# diable player input
+	player_reference.disble_input()
+	
+	if has_won:
+		$Label.visible = true
+		sfx.stream = COMPLETED_LEVEL
+		sfx.play()
+	else:
+		sfx.stream = FAILED_LEVEL
+		sfx.play()
+
+func cleared_challenge() -> bool:
+	sfx.stream = COMPLETED_COLLECTION
+	sfx.play()
+	return true if get_collectible_count() == 0 else false
+
+func restart() -> void:
+	get_tree().reload_current_scene.call_deferred()

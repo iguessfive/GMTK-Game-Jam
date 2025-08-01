@@ -10,9 +10,10 @@ position = Vector2(736, 480)
 level = NodePath("../LevelExample")
 hazards = NodePath("../LevelExample/HazardLayer")
 
-[node name="LevelExample" parent="." instance=ExtResource("2_y1cqu")]
+[node name="LevelExample" parent="." node_paths=PackedStringArray("player_reference") instance=ExtResource("2_y1cqu")]
 z_index = -1
 position = Vector2(0, -1)
+player_reference = NodePath("../Snake")
 
 [editable path="Snake"]
 [editable path="LevelExample"]

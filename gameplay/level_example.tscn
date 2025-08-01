@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=4 uid="uid://ba870ecmck1yx"]
 
-[ext_resource type="TileSet" uid="uid://bv3udtkc67jpy" path="res://assets/TileSets/example_tiles.tres" id="1_4t1ad"]
+[ext_resource type="TileSet" uid="uid://bv3udtkc67jpy" path="res://assets/tileSets/example_tiles.tres" id="1_4t1ad"]
 [ext_resource type="Script" uid="uid://cvnudra0dylww" path="res://gameplay/level_layer.gd" id="2_16cv5"]
 [ext_resource type="Script" uid="uid://dkv73t6llhsg5" path="res://gameplay/collectibles_manager.gd" id="3_jqd86"]
 [ext_resource type="PackedScene" uid="uid://bv0tr0ku8dldd" path="res://gameplay/collectibles.tscn" id="4_4t1ad"]
@@ -24,9 +24,6 @@ script = ExtResource("3_jqd86")
 position = Vector2(736, 224)
 
 [node name="Collectibles2" parent="CollectibleManager" instance=ExtResource("4_4t1ad")]
-position = Vector2(288, 416)
-
-[node name="Collectibles3" parent="CollectibleManager" instance=ExtResource("4_4t1ad")]
 position = Vector2(544, 352)
 
 [node name="HazardLayer" parent="." instance=ExtResource("5_rpepa")]
