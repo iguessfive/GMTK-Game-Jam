@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://t6i3xvf8x24f"]
+
+[node name="EndLevelMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.385417
+anchor_top = 0.314815
+anchor_right = 0.527778
+anchor_bottom = 0.350309
+text = "Level Cleared / Failed"
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.374132
+anchor_top = 0.427469
+anchor_right = 0.542535
+anchor_bottom = 0.462963
+text = "Fail or Success Text"
+fit_content = true
+metadata/_edit_use_anchors_ = true

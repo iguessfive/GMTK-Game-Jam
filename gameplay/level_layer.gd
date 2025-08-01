@@ -59,6 +59,11 @@ func end(has_won: bool) -> void: # end level with win or lose condition
 		sfx.stream = FAILED_LEVEL
 		sfx.play()
 
+	if get_tree().has_group("menu"):
+		var menu = get_tree().get_first_node_in_group("menu")
+		menu.get_child(1).visible = true  # show end menu
+		print_debug("End menu shown")
+
 func cleared_challenge() -> bool:
 	sfx.stream = COMPLETED_COLLECTION
 	sfx.play()

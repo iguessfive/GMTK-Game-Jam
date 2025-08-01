@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bs70d2cpeeq0w"]
+
+[ext_resource type="PackedScene" uid="uid://mafcxi5o3n62" path="res://ui/option_menu.tscn" id="1_bwjgb"]
+[ext_resource type="PackedScene" uid="uid://t6i3xvf8x24f" path="res://ui/level_end_menu.tscn" id="2_udkah"]
+
+[node name="Menu" type="CanvasLayer" groups=["menu"]]
+
+[node name="OptionMenu" parent="." instance=ExtResource("1_bwjgb")]
+visible = false
+
+[node name="EndLevelMenu" parent="." instance=ExtResource("2_udkah")]
+visible = false

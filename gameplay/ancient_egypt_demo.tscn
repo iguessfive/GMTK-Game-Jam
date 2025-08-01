@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://b7om10vhhj4rl"]
+[gd_scene load_steps=4 format=3 uid="uid://b7om10vhhj4rl"]
 
 [ext_resource type="PackedScene" uid="uid://bomryssos12v2" path="res://gameplay/snake.tscn" id="1_h0s8t"]
 [ext_resource type="PackedScene" uid="uid://ba870ecmck1yx" path="res://gameplay/level_example.tscn" id="2_y1cqu"]
+[ext_resource type="PackedScene" uid="uid://bs70d2cpeeq0w" path="res://ui/menu.tscn" id="3_stmoa"]
 
-[node name="OuroborousGame" type="Node2D"]
+[node name="AncientEgyptDemo" type="Node2D"]
 
 [node name="Snake" parent="." node_paths=PackedStringArray("level", "hazards") instance=ExtResource("1_h0s8t")]
 position = Vector2(736, 480)
@@ -14,6 +15,8 @@ hazards = NodePath("../LevelExample/HazardLayer")
 z_index = -1
 position = Vector2(0, -1)
 player_reference = NodePath("../Snake")
+
+[node name="Menu" parent="." instance=ExtResource("3_stmoa")]
 
 [editable path="Snake"]
 [editable path="LevelExample"]

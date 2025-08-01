@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://cri47snqk0htp"]
+[gd_scene load_steps=3 format=3 uid="uid://cri47snqk0htp"]
+
+[ext_resource type="Script" uid="uid://cymgqvhwalplt" path="res://ui/start_menu.gd" id="1_kw4xl"]
+[ext_resource type="PackedScene" uid="uid://o374m3kyeprx" path="res://ui/level_selector_menu.tscn" id="2_iuit4"]
 
 [node name="StartMenu" type="Control"]
 layout_mode = 3
@@ -7,6 +10,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_kw4xl")
+level_selector = ExtResource("2_iuit4")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -17,14 +22,14 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.388235, 0.658824, 0.360784, 1)
 
-[node name="Button" type="Button" parent="."]
+[node name="StartButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.545139
-anchor_bottom = 0.54784
-offset_right = -52.0
-offset_bottom = -31.0
+anchor_left = 0.480903
+anchor_top = 0.566358
+anchor_right = 0.526042
+anchor_bottom = 0.614198
 text = "Begin"
 metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]

@@ -21,3 +21,4 @@ shape = SubResource("CircleShape2D_n6a7h")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_ollpg")
+bus = &"SFX"

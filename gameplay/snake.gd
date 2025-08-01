@@ -63,6 +63,14 @@ func _physics_process(delta: float) -> void:
 	if direction.length() > 0:
 		persisent_body.add_point(head.global_position )
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("menu"):
+		if get_tree().has_group("menu"):
+			var menu = get_tree().get_first_node_in_group("menu")
+			menu.get_child(0).visible = not menu.get_child(0).visible
+			print("ui found")
+
+
 func _on_collector_area_entered(area: Area2D) -> void:
 	if area.is_in_group("collectible"):
 		area.destroy()  # handle pickups specific logic, sfx, animation, etc.
