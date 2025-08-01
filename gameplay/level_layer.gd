@@ -15,6 +15,7 @@ var sfx: AudioStreamPlayer
 func _ready() -> void:
 	sfx = AudioStreamPlayer.new()
 	add_child(sfx)
+	sfx.bus = "SFX"
 	sfx.finished.connect(restart)
 
 ## Used to record the tiles the player has travelled
