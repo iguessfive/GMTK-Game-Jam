@@ -1,12 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://t6i3xvf8x24f"]
+[gd_scene load_steps=9 format=3 uid="uid://t6i3xvf8x24f"]
 
 [ext_resource type="Script" uid="uid://dtwnjmgfc535n" path="res://ui/level_end.gd" id="1_32sc8"]
 [ext_resource type="Script" uid="uid://dee1xxugnplcm" path="res://ui/dialogue_box.gd" id="2_vkghd"]
+[ext_resource type="Texture2D" uid="uid://dwv61w0ms2s06" path="res://assets/sprites/level end.png" id="3_alw8x"]
+[ext_resource type="Texture2D" uid="uid://clh7abranqkk4" path="res://assets/buttons/play again.png" id="4_x37hq"]
+[ext_resource type="Texture2D" uid="uid://e2estg1xn5br" path="res://assets/buttons/play again hover.png" id="5_04fcr"]
+[ext_resource type="Texture2D" uid="uid://cg3nwoqh3n5mx" path="res://assets/buttons/other level.png" id="6_jmck8"]
+[ext_resource type="Texture2D" uid="uid://ddq0kg75nkq0y" path="res://assets/buttons/other level hover.png" id="7_d45wj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_blinr"]
 font_size = 32
-font_color = Color(0.145098, 0.25098, 1, 1)
-outline_size = 10
+font_color = Color(0.333333, 0.247059, 0.133333, 1)
 
 [node name="EndLevel" type="Control"]
 layout_mode = 3
@@ -14,24 +18,17 @@ anchor_left = 0.2
 anchor_top = 0.2
 anchor_right = 0.8
 anchor_bottom = 0.8
+size_flags_vertical = 4
 script = ExtResource("1_32sc8")
 metadata/_edit_use_anchors_ = true
-
-[node name="Background" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="ResultLabel" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.256221
-anchor_top = 0.0823045
-anchor_right = 0.743779
-anchor_bottom = 0.198045
+anchor_left = 0.255498
+anchor_top = 0.124486
+anchor_right = 0.743056
+anchor_bottom = 0.240226
 grow_horizontal = 2
 text = "Level Cleared / Failed!"
 label_settings = SubResource("LabelSettings_blinr")
@@ -54,25 +51,40 @@ start_text = "
 "
 metadata/_edit_use_anchors_ = true
 
-[node name="LevelSelectorButton" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.391493
-anchor_top = 0.796296
-anchor_right = 0.569444
-anchor_bottom = 0.876029
-text = "Another Level?"
-metadata/_edit_use_anchors_ = true
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
 
-[node name="PlayAgainButton" type="Button" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(575, 301)
+texture = ExtResource("3_alw8x")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.407118
-anchor_top = 0.641461
-anchor_right = 0.54456
-anchor_bottom = 0.721193
-text = "Play Again?"
-metadata/_edit_use_anchors_ = true
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -87.5
+offset_top = -159.0
+offset_right = 87.5
+offset_bottom = -47.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="play again" type="TextureButton" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_x37hq")
+texture_hover = ExtResource("5_04fcr")
+
+[node name="other level" type="TextureButton" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_jmck8")
+texture_hover = ExtResource("7_d45wj")
 
 [connection signal="show_dialogue" from="DialogueBox" to="." method="_on_dialogue_box_show_dialogue"]
-[connection signal="pressed" from="LevelSelectorButton" to="." method="_on_level_selector_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/play again" to="." method="_on_play_again_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/other level" to="." method="_on_other_level_pressed"]
