@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvg4wjmxfbnb1"]
+
+[ext_resource type="Script" uid="uid://dkv73t6llhsg5" path="res://gameplay/collectibles_manager.gd" id="1_blnwf"]
+
+[node name="CollectibleManger" type="Node2D"]
+script = ExtResource("1_blnwf")

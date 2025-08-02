@@ -1,48 +1,14 @@
-[gd_scene load_steps=7 format=4 uid="uid://ba870ecmck1yx"]
+[gd_scene load_steps=6 format=4 uid="uid://ba870ecmck1yx"]
 
-[ext_resource type="Texture2D" uid="uid://7ap6jjpkkebx" path="res://assets/tileset.png" id="1_jqd86"]
-[ext_resource type="Script" uid="uid://cvnudra0dylww" path="res://gameplay/level.gd" id="2_16cv5"]
+[ext_resource type="TileSet" uid="uid://bv3udtkc67jpy" path="res://assets/tile_sets/example_tiles.tres" id="1_4t1ad"]
+[ext_resource type="Script" uid="uid://cvnudra0dylww" path="res://gameplay/level_layer.gd" id="2_16cv5"]
 [ext_resource type="Script" uid="uid://dkv73t6llhsg5" path="res://gameplay/collectibles_manager.gd" id="3_jqd86"]
 [ext_resource type="PackedScene" uid="uid://bv0tr0ku8dldd" path="res://gameplay/collectibles.tscn" id="4_4t1ad"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4t1ad"]
-texture = ExtResource("1_jqd86")
-0:4/size_in_atlas = Vector2i(4, 4)
-0:4/0 = 0
-4:4/size_in_atlas = Vector2i(4, 4)
-4:4/0 = 0
-8:4/size_in_atlas = Vector2i(4, 4)
-8:4/0 = 0
-12:4/size_in_atlas = Vector2i(4, 4)
-12:4/0 = 0
-0:0/size_in_atlas = Vector2i(4, 4)
-0:0/0 = 0
-4:0/size_in_atlas = Vector2i(4, 4)
-4:0/0 = 0
-8:0/size_in_atlas = Vector2i(4, 4)
-8:0/0 = 0
-12:0/size_in_atlas = Vector2i(4, 4)
-12:0/0 = 0
-4:8/size_in_atlas = Vector2i(4, 4)
-4:8/0 = 0
-12:8/size_in_atlas = Vector2i(4, 4)
-12:8/0 = 0
-4:12/size_in_atlas = Vector2i(4, 4)
-4:12/0 = 0
-8:12/size_in_atlas = Vector2i(4, 4)
-8:12/0 = 0
-12:12/size_in_atlas = Vector2i(4, 4)
-12:12/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_rpepa"]
-tile_size = Vector2i(64, 64)
-physics_layer_0/collision_layer = 2
-physics_layer_0/collision_mask = 2
-sources/0 = SubResource("TileSetAtlasSource_4t1ad")
+[ext_resource type="PackedScene" uid="uid://brkpuxeqb8xmg" path="res://gameplay/hazard_layer.tscn" id="5_rpepa"]
 
 [node name="LevelExample" type="TileMapLayer" node_paths=PackedStringArray("collectible_manager")]
-tile_map_data = PackedByteArray("AAACAAEAAAAEAAQAAAADAAEAAAAIAAQAAAAEAAEAAAAIAAQAAAAFAAEAAAAIAAQAAAAGAAEAAAAIAAQAAAAHAAEAAAAIAAQAAAAIAAEAAAAIAAQAAAAJAAEAAAAMAAQAAAAJAAIAAAAMAAgAAAAJAAMAAAAMAAgAAAACAAIAAAAEAAgAAAACAAMAAAAEAAgAAAACAAQAAAAEAAgAAAACAAUAAAAEAAwAAAADAAUAAAAIAAwAAAAEAAUAAAAIAAwAAAAFAAUAAAAIAAwAAAAGAAUAAAAIAAwAAAAHAAUAAAAIAAQAAAAIAAUAAAAIAAwAAAAJAAUAAAAMAAwAAAAJAAQAAAAMAAgAAAAIAAQAAAAEAAgAAAAGAAQAAAAMAAgAAAAFAAQAAAAMAAAAAAAEAAQAAAAIAAQAAAADAAMAAAAMAAgAAAAFAAMAAAAEAAgAAAAGAAMAAAAMAAAAAAAHAAMAAAAIAAwAAAAIAAMAAAAIAAAAAAAIAAIAAAAMAAAAAAAHAAIAAAAAAAAAAAAGAAIAAAAMAAAAAAAFAAIAAAAIAAAAAAAEAAIAAAAIAAwAAAADAAIAAAAEAAAAAAADAAQAAAAIAAAAAAA=")
-tile_set = SubResource("TileSet_rpepa")
+tile_map_data = PackedByteArray("AAAGAAYAAQAAAAAAAAAFAAYAAQAAAAAAAAAGAAUAAQAAAAAAAAAHAAcAAQAAAAAAAAAIAAQAAQAAAAAAAAAIAAUAAQAAAAAAAAAJAAYAAQAAAAAAAAAJAAcAAQAAAAAAAAAKAAYAAQAAAAAAAAAKAAcAAQAAAAAAAAALAAQAAQAAAAAAAAAJAAUAAQAAAAAAAAAKAAMAAQAAAAAAAAALAAMAAQAAAAAAAAALAAUAAQAAAAAAAAALAAYAAQAAAAAAAAAJAAMAAQAAAAAAAAAKAAIAAQAAAAAAAAAJAAIAAQAAAAAAAAALAAcAAQAAAAAAAAAHAAMAAQAAAAAAAAAGAAMAAQAAAAAAAAAGAAQAAQAAAAAAAAAIAAMAAQAAAAAAAAAFAAQAAQAAAAAAAAAEAAUAAQAAAAAAAAAEAAQAAQAAAAAAAAAEAAYAAQAAAAAAAAAGAAcAAQAAAAAAAAAIAAcAAQAAAAAAAAAGAAIAAQAAAAAAAAAHAAIAAQAAAAAAAAAIAAIAAQAAAAAAAAALAAIAAQAAAAAAAAAMAAIAAQAAAAAAAAAMAAMAAQAAAAAAAAAMAAQAAQAAAAAAAAAMAAUAAQAAAAAAAAAMAAYAAQAAAAAAAAAMAAcAAQAAAAAAAAA=")
+tile_set = ExtResource("1_4t1ad")
 script = ExtResource("2_16cv5")
 collectible_manager = NodePath("CollectibleManager")
 
@@ -50,10 +16,24 @@ collectible_manager = NodePath("CollectibleManager")
 script = ExtResource("3_jqd86")
 
 [node name="Collectibles" parent="CollectibleManager" instance=ExtResource("4_4t1ad")]
-position = Vector2(416, 224)
+position = Vector2(736, 224)
 
 [node name="Collectibles2" parent="CollectibleManager" instance=ExtResource("4_4t1ad")]
-position = Vector2(224, 352)
+position = Vector2(544, 352)
 
-[node name="Collectibles3" parent="CollectibleManager" instance=ExtResource("4_4t1ad")]
-position = Vector2(608, 160)
+[node name="HazardLayer" parent="." instance=ExtResource("5_rpepa")]
+tile_map_data = PackedByteArray("AAAHAAYAAAACAAEAAAAHAAUAAAACAAEAAAAHAAQAAAACAAEAAAAIAAYAAAACAAEAAAAFAAUAAAACAAEAAAAJAAQAAAACAAEAAAAKAAQAAAACAAEAAAAKAAUAAAACAAEAAAALAAEAAAAAAAEAAAAKAAEAAAAAAAEAAAAJAAEAAAAAAAEAAAAIAAEAAAAAAAEAAAAFAAIAAAAAAAEAAAAFAAMAAAAAAAEAAAAEAAMAAAAAAAEAAAADAAMAAAAAAAEAAAADAAQAAAAAAAEAAAADAAUAAAAAAAEAAAADAAYAAAAAAAEAAAADAAcAAAAAAAEAAAAEAAcAAAAAAAEAAAAFAAcAAAAAAAEAAAAFAAgAAAAAAAEAAAAGAAgAAAAAAAEAAAAHAAgAAAAAAAEAAAAIAAgAAAAAAAEAAAAJAAgAAAAAAAEAAAAKAAgAAAAAAAEAAAALAAgAAAAAAAEAAAAMAAgAAAAAAAEAAAAMAAEAAAAAAAEAAAANAAEAAAAAAAEAAAANAAIAAAAAAAEAAAANAAMAAAAAAAEAAAANAAQAAAAAAAEAAAANAAUAAAAAAAEAAAANAAYAAAAAAAEAAAANAAcAAAAAAAEAAAAGAAEAAAAAAAEAAAAHAAEAAAAAAAEAAAAFAAEAAAAAAAEAAAANAAgAAAAAAAEAAAA=")
+tile_set = ExtResource("1_4t1ad")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -5
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.509804, 0.941176, 1, 1)
+
+[editable path="CollectibleManager/Collectibles"]

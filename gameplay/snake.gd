@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var speed: float = 200.0
 @export var grid_size: float = 64.0
 @export var level: TileMapLayer
+@export var hazards: TileMapLayer
 
 var direction := Vector2()
 var has_moved_finished := true
@@ -28,20 +29,16 @@ func _physics_process(delta: float) -> void:
 	if has_moved_finished and direction == Vector2.ZERO: # get input only when the player has finished moving
 		var direction_x = Input.get_axis("move_left", "move_right")
 		var direction_y = Input.get_axis("move_up", "move_down")
-		if direction_x > 0:
-			head.rotation_degrees = 90
-		elif direction_x < 0:
-			head.rotation_degrees = -90
-		
-		if direction_y > 0:
-			head.rotation_degrees = -180
-		elif direction_y < 0:
-			head.rotation_degrees = 0
-		
-		if direction_x != 0.0:
-			direction = Vector2(direction_x, 0).normalized()
-		elif direction_y != 0.0:
-			direction = Vector2(0, direction_y).normalized()
+		direction = Vector2(direction_x, direction_y).normalized()
+
+	if direction.x > 0:
+		head.rotation_degrees = 90
+	elif direction.x < 0:
+		head.rotation_degrees = -90
+	elif direction.y > 0:
+		head.rotation_degrees = -180
+	elif direction.y < 0:
+		head.rotation_degrees = 0
 
 	velocity = Vector2.ZERO
 	if abs(direction.x) > 0.0:
@@ -66,6 +63,14 @@ func _physics_process(delta: float) -> void:
 	if direction.length() > 0:
 		persisent_body.add_point(head.global_position )
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("menu"):
+		if get_tree().has_group("menu"):
+			var menu = get_tree().get_first_node_in_group("menu")
+			menu.get_child(0).visible = not menu.get_child(0).visible
+			print("ui found")
+
+
 func _on_collector_area_entered(area: Area2D) -> void:
 	if area.is_in_group("collectible"):
 		area.destroy()  # handle pickups specific logic, sfx, animation, etc.
@@ -74,4 +79,13 @@ func _on_collector_area_entered(area: Area2D) -> void:
 		print(level.get_collectible_count())
 		if level.get_collectible_count() == 0:
 			print_debug("You can win now, all pickups collected!")
-			level.can_win = true # once all items are collected
+			level.can_win = true
+			level.cleared_challenge() # once all items are collected
+
+func _on_hazard_sensor_body_entered(body: Node2D) -> void:
+	if body.is_in_group("hazards"):
+		print_debug("You have entered a hazard area!")
+		level.end(false)  # loss on hazard collision
+
+func disble_input() -> void:
+	set_physics_process(false)
