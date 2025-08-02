@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://cri47snqk0htp"]
+
+[ext_resource type="Script" uid="uid://cymgqvhwalplt" path="res://ui/start_screen.gd" id="1_50anp"]
+[ext_resource type="PackedScene" uid="uid://o374m3kyeprx" path="res://ui/level_selector.tscn" id="2_nledq"]
+[ext_resource type="Texture2D" uid="uid://dp1uecmbapgjr" path="res://assets/buttons/play button.png" id="3_8cpes"]
+[ext_resource type="Texture2D" uid="uid://cr7m7fu56su0d" path="res://assets/buttons/play button hover.png" id="4_q260t"]
+[ext_resource type="Texture2D" uid="uid://dmjxoq4gm1732" path="res://assets/buttons/options button.png" id="5_tgpwp"]
+[ext_resource type="Texture2D" uid="uid://crffk0o1muybd" path="res://assets/buttons/options button hover.png" id="6_65fpc"]
+[ext_resource type="Texture2D" uid="uid://dcc0hna12bwtd" path="res://assets/sprites/start screen.png" id="7_0gt6g"]
+
+[node name="StartScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_50anp")
+level_selector = ExtResource("2_nledq")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 622.0
+offset_top = 24.0
+offset_right = 1217.0
+offset_bottom = 428.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="play" type="TextureButton" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_8cpes")
+texture_hover = ExtResource("4_q260t")
+stretch_mode = 4
+
+[node name="options" type="TextureButton" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_tgpwp")
+texture_hover = ExtResource("6_65fpc")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(576, 324)
+texture = ExtResource("7_0gt6g")
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/options" to="." method="_on_options_pressed"]
