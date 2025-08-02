@@ -1,4 +1,4 @@
-class_name LevelLayer extends TileMapLayer
+class_name LevelMapLayer extends TileMapLayer
 
 const COMPLETED_COLLECTION = preload("res://assets/sfx/completed_collection.ogg")
 const COMPLETED_LEVEL = preload("res://assets/sfx/completed_level.ogg")

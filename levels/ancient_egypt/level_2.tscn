@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=4 uid="uid://bbgxyvs61ktx3"]
+
+[ext_resource type="PackedScene" uid="uid://ji5r8a0i4r1p" path="res://levels/map.tscn" id="1_cc8yy"]
+[ext_resource type="PackedScene" uid="uid://cem2alvdu2jcd" path="res://collectibles/scarab.tscn" id="2_8pe28"]
+[ext_resource type="PackedScene" uid="uid://bomryssos12v2" path="res://gameplay/snake.tscn" id="2_mi4pg"]
+[ext_resource type="PackedScene" uid="uid://bs70d2cpeeq0w" path="res://ui/menu.tscn" id="3_8pe28"]
+[ext_resource type="Script" uid="uid://dee1xxugnplcm" path="res://ui/dialogue_box.gd" id="4_ir6w4"]
+[ext_resource type="AudioStream" uid="uid://bwvxuh1fmuprs" path="res://assets/sfx/snake_rattle_sfx.ogg" id="6_8pe28"]
+
+[node name="Level2" type="Node2D"]
+
+[node name="Map" parent="." node_paths=PackedStringArray("player_reference", "collectible_manager", "dialogue_box") instance=ExtResource("1_cc8yy")]
+tile_map_data = PackedByteArray("AAAFAAYAAAADAAAAAAAGAAYAAAADAAAAAAAHAAYAAAADAAAAAAAHAAUAAAADAAAAAAAGAAUAAAADAAAAAAAFAAUAAAADAAAAAAAGAAQAAAADAAAAAAAHAAQAAAADAAAAAAAIAAQAAAADAAAAAAAIAAUAAAADAAAAAAAJAAUAAAADAAAAAAAJAAQAAAADAAAAAAAJAAMAAAADAAAAAAAIAAMAAAADAAAAAAAKAAMAAAADAAAAAAALAAMAAAADAAAAAAAMAAMAAAADAAAAAAAMAAQAAAADAAAAAAAMAAUAAAADAAAAAAAMAAYAAAADAAAAAAALAAUAAAADAAAAAAALAAQAAAADAAAAAAAKAAQAAAADAAAAAAA=")
+player_reference = NodePath("../Snake")
+collectible_manager = NodePath("CollectibleManger")
+dialogue_box = NodePath("../Menu/DialogueBox")
+
+[node name="ColorRect" parent="Map/CanvasLayer" index="0"]
+color = Color(0.415686, 0.678431, 0.619608, 1)
+
+[node name="Collectibles" parent="Map/CollectibleManger" index="0" instance=ExtResource("2_8pe28")]
+position = Vector2(544, 224)
+
+[node name="Collectibles2" parent="Map/CollectibleManger" index="1" instance=ExtResource("2_8pe28")]
+position = Vector2(544, 352)
+
+[node name="Collectibles3" parent="Map/CollectibleManger" index="2" instance=ExtResource("2_8pe28")]
+position = Vector2(736, 352)
+
+[node name="HazardLayer" parent="Map" index="2"]
+tile_map_data = PackedByteArray("AAAFAAMAAAADAAUAAAAFAAcAAAADAAUAAAAGAAMAAAADAAUAAAAGAAcAAAADAAUAAAAHAAcAAAADAAUAAAAIAAIAAAADAAUAAAAIAAYAAAADAAUAAAAIAAcAAAADAAUAAAAJAAIAAAADAAUAAAAJAAYAAAADAAUAAAAKAAIAAAADAAUAAAAKAAYAAAABAAUAAAALAAIAAAADAAUAAAAEAAUAAAADAAUAAAAEAAYAAAABAAUAAAAFAAQAAAADAAUAAAAHAAMAAAADAAUAAAAJAAcAAAADAAUAAAAKAAUAAAADAAUAAAAMAAIAAAADAAUAAAANAAMAAAABAAUAAAANAAQAAAADAAUAAAANAAUAAAADAAUAAAALAAYAAAADAAUAAAAMAAcAAAADAAUAAAANAAYAAAADAAUAAAA=")
+
+[node name="Snake" parent="." node_paths=PackedStringArray("map", "hazards") instance=ExtResource("2_mi4pg")]
+position = Vector2(352, 416)
+map = NodePath("../Map")
+hazards = NodePath("../Map/HazardLayer")
+
+[node name="Menu" parent="." instance=ExtResource("3_8pe28")]
+
+[node name="DialogueBox" type="RichTextLabel" parent="Menu"]
+anchors_preset = -1
+anchor_left = 0.0277778
+anchor_top = 0.0493827
+anchor_right = 0.361111
+anchor_bottom = 0.148148
+script = ExtResource("4_ir6w4")
+voice_stream = ExtResource("6_8pe28")
+start_text = "A task given to succeed means echoing in eternity"
+failed_text = "Denied by the fates"
+succeeded_text = "Another path forged so as thing began they do so end."
+metadata/_custom_type_script = "uid://dee1xxugnplcm"
+metadata/_edit_use_anchors_ = true
+
+[editable path="Map"]

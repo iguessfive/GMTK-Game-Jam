@@ -45,6 +45,11 @@ layout_mode = 2
 texture_normal = ExtResource("1_6m5so")
 texture_pressed = ExtResource("2_bb7yj")
 
+[node name="AncientEgypt2" type="TextureButton" parent="GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_6m5so")
+texture_pressed = ExtResource("2_bb7yj")
+
 [node name="NorseMythology" type="TextureButton" parent="GridContainer"]
 layout_mode = 2
 texture_normal = ExtResource("3_g6qfp")
@@ -61,3 +66,4 @@ texture_normal = ExtResource("7_d4ekp")
 texture_pressed = ExtResource("8_drkad")
 
 [connection signal="pressed" from="GridContainer/AncientEgypt" to="." method="_on_ancient_egypt_pressed"]
+[connection signal="pressed" from="GridContainer/AncientEgypt2" to="." method="_on_ancient_egypt_2_pressed"]
