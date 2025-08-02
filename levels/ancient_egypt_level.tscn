@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dnbn5rr84i4dg"]
+[gd_scene load_steps=6 format=3 uid="uid://dnbn5rr84i4dg"]
 
 [ext_resource type="PackedScene" uid="uid://ji5r8a0i4r1p" path="res://levels/ancient_egypt_map.tscn" id="1_dtgm2"]
 [ext_resource type="PackedScene" uid="uid://bomryssos12v2" path="res://gameplay/snake.tscn" id="2_c3dxo"]
 [ext_resource type="PackedScene" uid="uid://bs70d2cpeeq0w" path="res://ui/menu.tscn" id="3_wran6"]
 [ext_resource type="Script" uid="uid://dee1xxugnplcm" path="res://ui/dialogue_box.gd" id="4_bsk3f"]
+[ext_resource type="AudioStream" uid="uid://bwvxuh1fmuprs" path="res://assets/sfx/snake_rattle_sfx.ogg" id="5_bsk3f"]
 
 [node name="AncientEgyptLevel" type="Node2D"]
 
@@ -26,6 +27,7 @@ anchor_top = 0.0987654
 anchor_right = 0.222222
 anchor_bottom = 0.197531
 script = ExtResource("4_bsk3f")
+voice_stream = ExtResource("5_bsk3f")
 start_text = "Let's begin"
 failed_text = "Oh no"
 succeeded_text = "Awesome"

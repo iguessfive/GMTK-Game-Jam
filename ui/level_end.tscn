@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://t6i3xvf8x24f"]
+[gd_scene load_steps=11 format=3 uid="uid://t6i3xvf8x24f"]
 
 [ext_resource type="Script" uid="uid://dtwnjmgfc535n" path="res://ui/level_end.gd" id="1_32sc8"]
 [ext_resource type="Texture2D" uid="uid://byuh0xdvqu2ps" path="res://assets/sprites/level_end_backgrounf.png" id="2_alw8x"]
@@ -6,6 +6,7 @@
 [ext_resource type="Theme" uid="uid://r7ky6f4dvnyc" path="res://assets/themes/dialogue_box.tres" id="3_x37hq"]
 [ext_resource type="Texture2D" uid="uid://dgsqdklihqxg3" path="res://assets/buttons/play_again_normal.png" id="4_x37hq"]
 [ext_resource type="Texture2D" uid="uid://cdrvnakj6mmsa" path="res://assets/buttons/play_again_hover.png" id="5_04fcr"]
+[ext_resource type="AudioStream" uid="uid://bwvxuh1fmuprs" path="res://assets/sfx/snake_rattle_sfx.ogg" id="5_jmck8"]
 [ext_resource type="Texture2D" uid="uid://dskphhvcbl3fi" path="res://assets/buttons/other_level_normal.png" id="6_jmck8"]
 [ext_resource type="Texture2D" uid="uid://brfnuhj3knvp1" path="res://assets/buttons/other_level_hover.png" id="7_d45wj"]
 
@@ -62,6 +63,7 @@ text = "Fail or Success Text"
 fit_content = true
 script = ExtResource("2_vkghd")
 is_level_entry_dialogue = false
+voice_stream = ExtResource("5_jmck8")
 start_text = "
 "
 metadata/_edit_use_anchors_ = true
