@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://cri47snqk0htp"]
+[gd_scene load_steps=9 format=3 uid="uid://cri47snqk0htp"]
 
 [ext_resource type="Script" uid="uid://cymgqvhwalplt" path="res://ui/start_screen.gd" id="1_50anp"]
-[ext_resource type="PackedScene" uid="uid://o374m3kyeprx" path="res://ui/level_selector.tscn" id="2_nledq"]
+[ext_resource type="PackedScene" uid="uid://o374m3kyeprx" path="res://ui/level_selector_demo.tscn" id="2_nledq"]
+[ext_resource type="Texture2D" uid="uid://wnpjvm4m7wjg" path="res://assets/sprites/start_screen_background.png" id="3_nledq"]
+[ext_resource type="Texture2D" uid="uid://clcy75ntd4j5d" path="res://assets/buttons/play_normal.png" id="4_a8ycg"]
+[ext_resource type="Texture2D" uid="uid://bl4o2opvqmavo" path="res://assets/buttons/play_hover.png" id="5_7pkrh"]
+[ext_resource type="Texture2D" uid="uid://cn8k8y60b0f32" path="res://assets/buttons/options_normal.png" id="6_8cpes"]
+[ext_resource type="Texture2D" uid="uid://b6h7ro6h5aade" path="res://assets/buttons/options_hover.png" id="7_q260t"]
+[ext_resource type="PackedScene" uid="uid://mafcxi5o3n62" path="res://ui/options.tscn" id="8_tgpwp"]
 
 [node name="StartScreen" type="Control"]
 layout_mode = 3
@@ -13,23 +19,43 @@ grow_vertical = 2
 script = ExtResource("1_50anp")
 level_selector = ExtResource("2_nledq")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.388235, 0.658824, 0.360784, 1)
+texture = ExtResource("3_nledq")
 
-[node name="StartButton" type="Button" parent="."]
+[node name="PlayButton" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.480903
-anchor_top = 0.566358
-anchor_right = 0.526042
-anchor_bottom = 0.614198
-text = "Play"
+anchor_left = 0.53125
+anchor_top = 0.0339506
+anchor_right = 0.965278
+anchor_bottom = 0.342593
+texture_normal = ExtResource("4_a8ycg")
+texture_hover = ExtResource("5_7pkrh")
 metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[node name="OptionButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.53125
+anchor_top = 0.0324074
+anchor_right = 0.965278
+anchor_bottom = 0.34105
+offset_top = 195.0
+offset_bottom = 195.0
+texture_normal = ExtResource("6_8cpes")
+texture_hover = ExtResource("7_q260t")
+metadata/_edit_use_anchors_ = true
+
+[node name="Menu" type="CanvasLayer" parent="." groups=["menu"]]
+
+[node name="Options" parent="Menu" instance=ExtResource("8_tgpwp")]
+visible = false
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="OptionButton" to="." method="_on_option_button_pressed"]

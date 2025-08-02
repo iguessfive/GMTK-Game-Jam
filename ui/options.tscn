@@ -53,5 +53,16 @@ grow_horizontal = 2
 text = "Level Selector"
 metadata/_edit_use_anchors_ = true
 
+[node name="ReturnButton" type="Button" parent="."]
+layout_mode = 0
+anchor_left = 0.453704
+anchor_top = 0.81893
+anchor_right = 0.541956
+anchor_bottom = 0.898663
+offset_right = 3.05176e-05
+text = "Return"
+metadata/_edit_use_anchors_ = true
+
 [connection signal="toggled" from="SFXCheckButton" to="." method="_on_sfx_check_button_toggled"]
 [connection signal="pressed" from="LevelSelectorButton" to="." method="_on_level_selector_button_pressed"]
+[connection signal="pressed" from="ReturnButton" to="." method="_on_return_button_pressed"]

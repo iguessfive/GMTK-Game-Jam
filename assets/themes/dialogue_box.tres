@@ -1,0 +1,6 @@
+[gd_resource type="Theme" format=3 uid="uid://r7ky6f4dvnyc"]
+
+[resource]
+RichTextLabel/colors/default_color = Color(0.313726, 0.227451, 0.121569, 1)
+RichTextLabel/font_sizes/bold_font_size = 18
+RichTextLabel/font_sizes/normal_font_size = 16

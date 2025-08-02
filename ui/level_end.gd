@@ -5,7 +5,7 @@ const LEVEL_FAILED_TEXT = "Level Failed!"
 
 var has_successfully_completed_level: bool = false
 
-@onready var play_again_button: Button = $PlayAgainButton
+@onready var play_again_button := $PlayAgainButton
 @onready var dialogue_box: RichTextLabel = $DialogueBox
 
 func _ready() -> void:

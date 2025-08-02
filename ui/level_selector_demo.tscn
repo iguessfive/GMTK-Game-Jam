@@ -10,11 +10,13 @@
 [ext_resource type="Texture2D" uid="uid://cbj42vi0whra2" path="res://assets/buttons/random.png" id="7_d4ekp"]
 [ext_resource type="Texture2D" uid="uid://qmpy6w3peg7c" path="res://assets/buttons/random_pressed.png" id="8_drkad"]
 
-[node name="LevelSelector" type="Control"]
+[node name="LevelSelectorDemo" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2

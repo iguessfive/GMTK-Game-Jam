@@ -1,12 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://t6i3xvf8x24f"]
+[gd_scene load_steps=10 format=3 uid="uid://t6i3xvf8x24f"]
 
 [ext_resource type="Script" uid="uid://dtwnjmgfc535n" path="res://ui/level_end.gd" id="1_32sc8"]
+[ext_resource type="Texture2D" uid="uid://byuh0xdvqu2ps" path="res://assets/sprites/level_end_backgrounf.png" id="2_alw8x"]
 [ext_resource type="Script" uid="uid://dee1xxugnplcm" path="res://ui/dialogue_box.gd" id="2_vkghd"]
+[ext_resource type="Theme" uid="uid://r7ky6f4dvnyc" path="res://assets/themes/dialogue_box.tres" id="3_x37hq"]
+[ext_resource type="Texture2D" uid="uid://dgsqdklihqxg3" path="res://assets/buttons/play_again_normal.png" id="4_x37hq"]
+[ext_resource type="Texture2D" uid="uid://cdrvnakj6mmsa" path="res://assets/buttons/play_again_hover.png" id="5_04fcr"]
+[ext_resource type="Texture2D" uid="uid://dskphhvcbl3fi" path="res://assets/buttons/other_level_normal.png" id="6_jmck8"]
+[ext_resource type="Texture2D" uid="uid://brfnuhj3knvp1" path="res://assets/buttons/other_level_hover.png" id="7_d45wj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_blinr"]
 font_size = 32
-font_color = Color(0.145098, 0.25098, 1, 1)
-outline_size = 10
+font_color = Color(0.698039, 0.568627, 0.380392, 1)
+outline_size = 5
+outline_color = Color(0.388235, 0.294118, 0.176471, 1)
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 0.392157)
 
 [node name="EndLevel" type="Control"]
 layout_mode = 3
@@ -17,21 +26,22 @@ anchor_bottom = 0.8
 script = ExtResource("1_32sc8")
 metadata/_edit_use_anchors_ = true
 
-[node name="Background" type="Panel" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_alw8x")
 
 [node name="ResultLabel" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.256221
-anchor_top = 0.0823045
-anchor_right = 0.743779
-anchor_bottom = 0.198045
+anchor_left = 0.251157
+anchor_top = 0.175926
+anchor_right = 0.738715
+anchor_bottom = 0.291667
 grow_horizontal = 2
 text = "Level Cleared / Failed!"
 label_settings = SubResource("LabelSettings_blinr")
@@ -42,36 +52,42 @@ metadata/_edit_use_anchors_ = true
 [node name="DialogueBox" type="RichTextLabel" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.237269
-anchor_top = 0.321502
-anchor_right = 0.769676
-anchor_bottom = 0.439815
+anchor_left = 0.222222
+anchor_top = 0.373971
+anchor_right = 0.754629
+anchor_bottom = 0.492284
+theme = ExtResource("3_x37hq")
 bbcode_enabled = true
 text = "Fail or Success Text"
 fit_content = true
 script = ExtResource("2_vkghd")
+is_level_entry_dialogue = false
 start_text = "
 "
 metadata/_edit_use_anchors_ = true
 
-[node name="LevelSelectorButton" type="Button" parent="."]
+[node name="PlayAgainButton" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.391493
-anchor_top = 0.796296
-anchor_right = 0.569444
-anchor_bottom = 0.876029
-text = "Another Level?"
+anchor_left = 0.360822
+anchor_top = 0.574589
+anchor_right = 0.614005
+anchor_bottom = 0.703189
+offset_bottom = 3.05176e-05
+texture_normal = ExtResource("4_x37hq")
+texture_hover = ExtResource("5_04fcr")
 metadata/_edit_use_anchors_ = true
 
-[node name="PlayAgainButton" type="Button" parent="."]
+[node name="LevelSelectorButton" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.407118
-anchor_top = 0.641461
-anchor_right = 0.54456
-anchor_bottom = 0.721193
-text = "Play Again?"
+anchor_left = 0.362558
+anchor_top = 0.713992
+anchor_right = 0.61574
+anchor_bottom = 0.842592
+offset_right = 0.000274658
+texture_normal = ExtResource("6_jmck8")
+texture_hover = ExtResource("7_d45wj")
 metadata/_edit_use_anchors_ = true
 
 [connection signal="show_dialogue" from="DialogueBox" to="." method="_on_dialogue_box_show_dialogue"]
