@@ -52,7 +52,6 @@ fit_content = true
 script = ExtResource("2_vkghd")
 start_text = "
 "
-succeeded_text = " Now it is done, the path forged and as things end they can start again."
 metadata/_edit_use_anchors_ = true
 
 [node name="LevelSelectorButton" type="Button" parent="."]

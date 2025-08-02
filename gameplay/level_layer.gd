@@ -6,6 +6,7 @@ const FAILED_LEVEL = preload("res://assets/sfx/failed_level.ogg")
 
 @export var player_reference: CharacterBody2D
 @export var collectible_manager: Node2D
+@export var dialogue_box: DialogueBox
 
 var travelled_tiles: Dictionary = {}
 var can_win := false
@@ -63,6 +64,9 @@ func end(has_won: bool) -> void: # end level with win or lose condition
 		level_end.visible = true  # show end menu
 		level_end.play_again_button.pressed.connect(restart)
 		level_end.has_successfully_completed_level = has_won
+		level_end.dialogue_box.is_level_entry_dialogue = false
+		level_end.dialogue_box.succeeded_text = dialogue_box.succeeded_text
+		level_end.dialogue_box.failed_text = dialogue_box.failed_text
 		level_end.dialogue_box.show_dialogue.emit()
 		print_debug("End menu shown")
 

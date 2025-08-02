@@ -12,10 +12,11 @@ position = Vector2(736, 480)
 level = NodePath("../LevelExample")
 hazards = NodePath("../LevelExample/HazardLayer")
 
-[node name="LevelExample" parent="." node_paths=PackedStringArray("player_reference") instance=ExtResource("2_y1cqu")]
+[node name="LevelExample" parent="." node_paths=PackedStringArray("player_reference", "dialogue_box") instance=ExtResource("2_y1cqu")]
 z_index = -1
 position = Vector2(0, -1)
 player_reference = NodePath("../Snake")
+dialogue_box = NodePath("../Menu/DialogueBox")
 
 [node name="Menu" parent="." instance=ExtResource("3_stmoa")]
 
@@ -27,6 +28,7 @@ offset_right = 304.0
 offset_bottom = 160.0
 script = ExtResource("4_5ltew")
 start_text = "At dawn, I was born, given a task to bridge a path that has no end, for once dawn sets to dusk, it shall rise again. "
+succeeded_text = "Now it is done, the path forged and as things end they can start again."
 metadata/_custom_type_script = "uid://dee1xxugnplcm"
 
 [editable path="Snake"]
