@@ -21,3 +21,4 @@ player_reference = NodePath("../Snake")
 [editable path="Snake"]
 [editable path="LevelExample"]
 [editable path="LevelExample/CollectibleManager/Collectibles"]
+[editable path="Menu"]

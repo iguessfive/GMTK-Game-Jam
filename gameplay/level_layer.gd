@@ -1,4 +1,4 @@
-class_name Level extends TileMapLayer
+class_name LevelLayer extends TileMapLayer
 
 const COMPLETED_COLLECTION = preload("res://assets/sfx/completed_collection.ogg")
 const COMPLETED_LEVEL = preload("res://assets/sfx/completed_level.ogg")
@@ -16,7 +16,6 @@ func _ready() -> void:
 	sfx = AudioStreamPlayer.new()
 	add_child(sfx)
 	sfx.bus = "SFX"
-	sfx.finished.connect(restart)
 
 ## Used to record the tiles the player has travelled
 func add_travelled_tile(point: Vector2) -> void:
@@ -52,7 +51,6 @@ func end(has_won: bool) -> void: # end level with win or lose condition
 	player_reference.disble_input()
 	
 	if has_won:
-		$Label.visible = true
 		sfx.stream = COMPLETED_LEVEL
 		sfx.play()
 	else:
@@ -61,7 +59,9 @@ func end(has_won: bool) -> void: # end level with win or lose condition
 
 	if get_tree().has_group("menu"):
 		var menu = get_tree().get_first_node_in_group("menu")
-		menu.get_child(1).visible = true  # show end menu
+		var level_end = menu.get_child(1)  # assuming LevelEnd is the second child
+		level_end.visible = true  # show end menu
+		level_end.play_again_button.pressed.connect(restart)
 		print_debug("End menu shown")
 
 func cleared_challenge() -> bool:
