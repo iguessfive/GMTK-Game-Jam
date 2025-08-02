@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=4 uid="uid://ba870ecmck1yx"]
 
 [ext_resource type="TileSet" uid="uid://bv3udtkc67jpy" path="res://assets/tile_sets/example_tiles.tres" id="1_4t1ad"]
-[ext_resource type="Script" uid="uid://cvnudra0dylww" path="res://gameplay/level_layer.gd" id="2_16cv5"]
+[ext_resource type="Script" path="res://gameplay/level_layer.gd" id="2_16cv5"]
 [ext_resource type="Script" uid="uid://dkv73t6llhsg5" path="res://gameplay/collectibles_manager.gd" id="3_jqd86"]
 [ext_resource type="PackedScene" uid="uid://bv0tr0ku8dldd" path="res://gameplay/collectibles.tscn" id="4_4t1ad"]
 [ext_resource type="PackedScene" uid="uid://brkpuxeqb8xmg" path="res://gameplay/hazard_layer.tscn" id="5_rpepa"]
