@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7v6bxtln6xqg"
-path="res://.godot/imported/snaken.png-610dbfce7372da1934274c967aaa471d.ctex"
+uid="uid://jwkdmxgnkeb1"
+path="res://.godot/imported/path_tiles_64px.png-bd09de3cf51e035513a7b994ba82546a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/snaken.png"
-dest_files=["res://.godot/imported/snaken.png-610dbfce7372da1934274c967aaa471d.ctex"]
+source_file="res://assets/sprites/path_tiles_64px.png"
+dest_files=["res://.godot/imported/path_tiles_64px.png-bd09de3cf51e035513a7b994ba82546a.ctex"]
 
 [params]
 

@@ -1,10 +1,10 @@
 [gd_resource type="TileSet" load_steps=5 format=3 uid="uid://bv3udtkc67jpy"]
 
-[ext_resource type="Texture2D" uid="uid://jwkdmxgnkeb1" path="res://assets/path_tiles_64px.png" id="1_6w7bi"]
-[ext_resource type="Texture2D" uid="uid://c7ukeftgfi7it" path="res://assets/desert tile.png" id="2_qkjln"]
+[ext_resource type="Texture2D" uid="uid://jwkdmxgnkeb1" path="res://assets/sprites/path_tiles_64px.png" id="1_svqht"]
+[ext_resource type="Texture2D" uid="uid://c7ukeftgfi7it" path="res://assets/sprites/desert tile.png" id="2_svqht"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_16cv5"]
-texture = ExtResource("1_6w7bi")
+texture = ExtResource("1_svqht")
 texture_region_size = Vector2i(64, 64)
 2:1/0 = 0
 2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
@@ -26,7 +26,7 @@ texture_region_size = Vector2i(64, 64)
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rpepa"]
-texture = ExtResource("2_qkjln")
+texture = ExtResource("2_svqht")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 

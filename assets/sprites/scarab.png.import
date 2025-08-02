@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6sadojrj1lhx"
-path="res://.godot/imported/boomerang.png-5770895f30dcfac709d84d56a16af681.ctex"
+uid="uid://ddpbpolqus48r"
+path="res://.godot/imported/scarab.png-5501e34668fa7700eb4ccf2b30b9818e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/boomerang.png"
-dest_files=["res://.godot/imported/boomerang.png-5770895f30dcfac709d84d56a16af681.ctex"]
+source_file="res://assets/sprites/scarab.png"
+dest_files=["res://.godot/imported/scarab.png-5501e34668fa7700eb4ccf2b30b9818e.ctex"]
 
 [params]
 

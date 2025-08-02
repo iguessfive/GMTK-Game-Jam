@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxkowf22ubbva"
-path="res://.godot/imported/rupee.png-225b86007ddc94040db9d1f02f280c4e.ctex"
+uid="uid://6sadojrj1lhx"
+path="res://.godot/imported/boomerang.png-0828c5f2913c495461fe3d53a8f02dc7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/rupee.png"
-dest_files=["res://.godot/imported/rupee.png-225b86007ddc94040db9d1f02f280c4e.ctex"]
+source_file="res://assets/sprites/boomerang.png"
+dest_files=["res://.godot/imported/boomerang.png-0828c5f2913c495461fe3d53a8f02dc7.ctex"]
 
 [params]
 

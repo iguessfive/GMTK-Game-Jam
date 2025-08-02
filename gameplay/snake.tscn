@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bomryssos12v2"]
 
 [ext_resource type="Script" uid="uid://crq5m74leirq4" path="res://gameplay/snake.gd" id="1_i4p4t"]
-[ext_resource type="Texture2D" uid="uid://c7v6bxtln6xqg" path="res://assets/snaken.png" id="2_yyr6o"]
+[ext_resource type="Texture2D" uid="uid://c7v6bxtln6xqg" path="res://assets/sprites/snaken.png" id="2_yyr6o"]
 
 [sub_resource type="Curve" id="Curve_yyr6o"]
 _data = [Vector2(0, 0.213483), 0.0, 0.0, 0, 0, Vector2(0.531915, 0.47191), 0.844944, 0.844944, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cem2alvdu2jcd"]
+
+[ext_resource type="PackedScene" uid="uid://bv0tr0ku8dldd" path="res://gameplay/collectibles.tscn" id="1_kf6y4"]
+[ext_resource type="Texture2D" uid="uid://ddpbpolqus48r" path="res://assets/sprites/scarab.png" id="2_rcc65"]
+
+[node name="Collectibles" instance=ExtResource("1_kf6y4")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_rcc65")
