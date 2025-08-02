@@ -62,6 +62,8 @@ func end(has_won: bool) -> void: # end level with win or lose condition
 		var level_end = menu.get_child(1)  # assuming LevelEnd is the second child
 		level_end.visible = true  # show end menu
 		level_end.play_again_button.pressed.connect(restart)
+		level_end.has_successfully_completed_level = has_won
+		level_end.dialogue_box.show_dialogue.emit()
 		print_debug("End menu shown")
 
 func cleared_challenge() -> bool:
