@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=4 uid="uid://b7khgimv44l77"]
+
+[ext_resource type="PackedScene" uid="uid://ji5r8a0i4r1p" path="res://levels/map.tscn" id="1_n7osx"]
+[ext_resource type="PackedScene" uid="uid://dvg4wjmxfbnb1" path="res://gameplay/collectible_manger.tscn" id="2_q73og"]
+[ext_resource type="PackedScene" uid="uid://brkpuxeqb8xmg" path="res://gameplay/hazard_layer.tscn" id="3_6mg3x"]
+[ext_resource type="PackedScene" uid="uid://cupolk48oxcuy" path="res://collectibles/gold.tscn" id="3_q73og"]
+[ext_resource type="PackedScene" uid="uid://bomryssos12v2" path="res://gameplay/snake.tscn" id="4_22t12"]
+[ext_resource type="TileSet" uid="uid://cysm6qcn1v41p" path="res://assets/tile_sets/lore_inspired_tiles.tres" id="5_6mg3x"]
+[ext_resource type="PackedScene" uid="uid://bs70d2cpeeq0w" path="res://ui/menu.tscn" id="5_w1jgy"]
+[ext_resource type="Script" uid="uid://dee1xxugnplcm" path="res://ui/dialogue_box.gd" id="6_v267e"]
+
+[node name="alevel 2" type="Node2D"]
+
+[node name="Map" parent="." node_paths=PackedStringArray("player_reference", "collectible_manager", "dialogue_box") instance=ExtResource("1_n7osx")]
+tile_map_data = PackedByteArray("AAAEAAIAAAADAAAAAAAEAAMAAAADAAAAAAAEAAQAAAADAAAAAAAEAAUAAAADAAAAAAAEAAYAAAADAAAAAAAEAAcAAAADAAAAAAAGAAIAAAADAAAAAAAFAAIAAAADAAAAAAAHAAIAAAADAAAAAAAIAAIAAAADAAAAAAAJAAIAAAADAAAAAAAKAAIAAAADAAAAAAAKAAMAAAADAAAAAAAKAAQAAAADAAAAAAALAAQAAAADAAAAAAANAAcAAAADAAAAAAANAAYAAAADAAAAAAANAAUAAAADAAAAAAANAAQAAAADAAAAAAANAAMAAAADAAAAAAADAAMAAAADAAAAAAADAAQAAAADAAAAAAADAAUAAAADAAAAAAADAAYAAAADAAAAAAADAAcAAAADAAAAAAAFAAcAAAADAAAAAAAGAAcAAAADAAAAAAAHAAcAAAADAAAAAAAIAAcAAAADAAAAAAAJAAcAAAADAAAAAAAKAAcAAAADAAAAAAALAAcAAAADAAAAAAAMAAcAAAADAAAAAAALAAIAAAADAAAAAAAMAAIAAAADAAAAAAAMAAQAAAADAAAAAAAMAAUAAAADAAAAAAAMAAYAAAADAAAAAAANAAIAAAADAAAAAAAJAAQAAAADAAAAAAAJAAUAAAADAAAAAAAJAAYAAAADAAAAAAA=")
+player_reference = NodePath("../Snake")
+collectible_manager = NodePath("CollectibleManger2")
+dialogue_box = NodePath("../Menu/DialogueBox")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="Map"]
+layer = -5
+
+[node name="ColorRect" type="ColorRect" parent="Map/CanvasLayer2"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.684745, 0.590482, 0.447489, 1)
+metadata/_edit_lock_ = true
+
+[node name="CollectibleManger2" parent="Map" instance=ExtResource("2_q73og")]
+
+[node name="Collectibles" parent="Map/CollectibleManger2" instance=ExtResource("3_q73og")]
+position = Vector2(224, 416)
+
+[node name="Collectibles2" parent="Map/CollectibleManger2" instance=ExtResource("3_q73og")]
+position = Vector2(672, 288)
+
+[node name="Collectibles3" parent="Map/CollectibleManger2" instance=ExtResource("3_q73og")]
+position = Vector2(800, 160)
+
+[node name="HazardLayer2" parent="Map" instance=ExtResource("3_6mg3x")]
+tile_map_data = PackedByteArray("AAADAAgAAAAEAAEAAAAEAAgAAAAEAAEAAAAFAAgAAAAEAAEAAAAGAAgAAAAEAAEAAAAHAAgAAAAEAAEAAAAIAAgAAAAEAAEAAAAJAAgAAAAEAAEAAAAKAAgAAAAEAAEAAAALAAgAAAAEAAEAAAAMAAgAAAACAAIAAAANAAgAAAAEAAEAAAAOAAgAAAAAAAMAAAAOAAcAAAAEAAEAAAAOAAYAAAAEAAEAAAAOAAUAAAAEAAEAAAAOAAQAAAAEAAIAAAAOAAMAAAAEAAEAAAAOAAIAAAAEAAEAAAAOAAEAAAACAAIAAAANAAEAAAAEAAEAAAAMAAEAAAAEAAEAAAALAAEAAAAEAAEAAAAKAAEAAAAEAAEAAAAJAAEAAAAEAAEAAAAIAAEAAAAEAAEAAAAHAAEAAAAEAAIAAAAGAAEAAAAEAAEAAAAFAAEAAAAEAAEAAAAEAAEAAAAEAAEAAAADAAEAAAAEAAEAAAADAAIAAAAEAAEAAAACAAIAAAAEAAEAAAACAAMAAAAEAAEAAAACAAQAAAAEAAEAAAACAAUAAAAAAAMAAAACAAYAAAAEAAEAAAACAAcAAAAEAAEAAAACAAgAAAAEAAEAAAAFAAYAAAAEAAEAAAAFAAUAAAAEAAEAAAAFAAQAAAAEAAEAAAAFAAMAAAACAAIAAAAGAAMAAAAEAAEAAAAHAAMAAAAEAAEAAAAIAAMAAAAEAAEAAAAJAAMAAAAEAAEAAAAIAAQAAAAEAAEAAAAIAAUAAAAEAAEAAAAIAAYAAAAEAAEAAAAHAAYAAAAEAAEAAAAGAAYAAAAEAAEAAAAKAAUAAAAEAAEAAAAKAAYAAAAEAAEAAAALAAYAAAAEAAIAAAALAAUAAAAEAAEAAAALAAMAAAAEAAEAAAAMAAMAAAAEAAEAAAA=")
+tile_set = ExtResource("5_6mg3x")
+
+[node name="Snake" parent="." node_paths=PackedStringArray("map", "hazards") instance=ExtResource("4_22t12")]
+position = Vector2(608, 480)
+map = NodePath("../Map")
+hazards = NodePath("../Map/HazardLayer2")
+
+[node name="Menu" parent="." instance=ExtResource("5_w1jgy")]
+
+[node name="DialogueBox" type="RichTextLabel" parent="Menu"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_v267e")
+failed_text = "skill issue"
+succeeded_text = "niceee"
+metadata/_custom_type_script = "uid://dee1xxugnplcm"

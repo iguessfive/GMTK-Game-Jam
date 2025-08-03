@@ -189,3 +189,4 @@ bus = &"SFX"
 [connection signal="mouse_entered" from="alchemyframe" to="." method="_on_alchemyframe_mouse_entered"]
 [connection signal="mouse_exited" from="alchemyframe" to="." method="_on_alchemyframe_mouse_exited"]
 [connection signal="pressed" from="alchemycontainer/alchemy" to="." method="_on_alchemy_pressed"]
+[connection signal="pressed" from="alchemycontainer/alchemy2" to="." method="_on_alchemy_2_pressed"]

@@ -33,3 +33,7 @@ func _on_alchemyframe_mouse_exited():
 
 func _on_alchemy_pressed():
 	get_tree().change_scene_to_file(FilePath.ALCHEMY_LEVEL_1)
+
+
+func _on_alchemy_2_pressed():
+	get_tree().change_scene_to_file(FilePath.ALCHEMY_LEVEL_2)
