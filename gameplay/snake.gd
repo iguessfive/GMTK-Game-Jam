@@ -67,8 +67,10 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("menu"):
 		if get_tree().has_group("menu"):
 			var menu = get_tree().get_first_node_in_group("menu")
-			menu.get_child(0).visible = not menu.get_child(0).visible
-			print("ui found")
+			if menu.get_child(1).visible:
+				pass # do nothing if level end is visible
+			else:
+				menu.get_child(0).visible = not menu.get_child(0).visible
 
 
 func _on_collector_area_entered(area: Area2D) -> void:

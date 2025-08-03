@@ -1,0 +1,87 @@
+[gd_scene load_steps=16 format=3 uid="uid://o374m3kyeprx"]
+
+[ext_resource type="Script" uid="uid://bmi3pgd3ijev1" path="res://ui/level_selector.gd" id="1_y3hoh"]
+[ext_resource type="Texture2D" uid="uid://bde6fyxuxw3t5" path="res://assets/sprites/select screen.png" id="2_w7mh7"]
+[ext_resource type="PackedScene" uid="uid://bp370imv75glg" path="res://ui/level_banner.tscn" id="3_o75l3"]
+[ext_resource type="PackedScene" uid="uid://dnbn5rr84i4dg" path="res://levels/ancient_egypt/level_1.tscn" id="4_htcor"]
+[ext_resource type="PackedScene" uid="uid://bbgxyvs61ktx3" path="res://levels/ancient_egypt/level_2.tscn" id="5_cwy1o"]
+[ext_resource type="Texture2D" uid="uid://cudd6px8iigqf" path="res://assets/buttons/el1.png" id="6_cwy1o"]
+[ext_resource type="Texture2D" uid="uid://c7atcogkhnlki" path="res://assets/buttons/selectn.png" id="7_21o4q"]
+[ext_resource type="Texture2D" uid="uid://b4euaxj1dd1qd" path="res://assets/buttons/el1h.png" id="7_dgy8l"]
+[ext_resource type="Texture2D" uid="uid://cfch2u2pv37t3" path="res://assets/buttons/selectn hover.png" id="8_dgy8l"]
+[ext_resource type="Texture2D" uid="uid://73mql6itggpk" path="res://assets/buttons/el2.png" id="8_w4rac"]
+[ext_resource type="Texture2D" uid="uid://cvbf6rtika22p" path="res://assets/buttons/selecta.png" id="9_w4rac"]
+[ext_resource type="Texture2D" uid="uid://cp02uwh45jjo1" path="res://assets/buttons/selecta hover.png" id="10_1b0ss"]
+[ext_resource type="Texture2D" uid="uid://ofndsb7ur2yc" path="res://assets/buttons/el3.png" id="10_eafgy"]
+[ext_resource type="Texture2D" uid="uid://bg3e453dsw2fg" path="res://assets/buttons/selectr.png" id="11_eafgy"]
+[ext_resource type="Texture2D" uid="uid://dh4tekj5hijfw" path="res://assets/buttons/selectr hover.png" id="12_2egnu"]
+
+[node name="LevelSelector" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_y3hoh")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_w7mh7")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0811632
+anchor_top = 0.194444
+anchor_right = 0.918837
+anchor_bottom = 0.657407
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 55
+columns = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="AncientEgypt" parent="GridContainer" instance=ExtResource("3_o75l3")]
+layout_mode = 2
+level_1 = ExtResource("4_htcor")
+level_2 = ExtResource("5_cwy1o")
+level_3 = ExtResource("4_htcor")
+
+[node name="Level_1" parent="GridContainer/AncientEgypt/VBoxContainer" index="0"]
+texture_normal = ExtResource("6_cwy1o")
+texture_hover = ExtResource("7_dgy8l")
+
+[node name="Level_2" parent="GridContainer/AncientEgypt/VBoxContainer" index="1"]
+texture_normal = ExtResource("8_w4rac")
+
+[node name="Level_3" parent="GridContainer/AncientEgypt/VBoxContainer" index="2"]
+texture_normal = ExtResource("10_eafgy")
+
+[node name="NorseMythology" parent="GridContainer" instance=ExtResource("3_o75l3")]
+layout_mode = 2
+banner_normal = ExtResource("7_21o4q")
+banner_hover = ExtResource("8_dgy8l")
+
+[node name="Alchemy" parent="GridContainer" instance=ExtResource("3_o75l3")]
+layout_mode = 2
+banner_normal = ExtResource("9_w4rac")
+banner_hover = ExtResource("10_1b0ss")
+
+[node name="RandomLevel" type="TextureButton" parent="GridContainer"]
+layout_mode = 2
+texture_normal = ExtResource("11_eafgy")
+texture_hover = ExtResource("12_2egnu")
+
+[editable path="GridContainer/AncientEgypt"]
+[editable path="GridContainer/NorseMythology"]

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dytji4fbl8oc1"]
+
+[ext_resource type="PackedScene" uid="uid://bv0tr0ku8dldd" path="res://gameplay/collectibles.tscn" id="1_wr1fv"]
+[ext_resource type="Texture2D" uid="uid://civabtkiyvgx4" path="res://assets/sprites/spider.png" id="2_hg6sl"]
+
+[node name="Collectibles" instance=ExtResource("1_wr1fv")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_hg6sl")
