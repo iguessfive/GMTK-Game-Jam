@@ -1,14 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://o374m3kyeprx"]
+[gd_scene load_steps=13 format=3 uid="uid://o374m3kyeprx"]
 
 [ext_resource type="Script" uid="uid://bmi3pgd3ijev1" path="res://ui/level_selector.gd" id="1_0a04p"]
 [ext_resource type="Texture2D" uid="uid://dbt6dpx6gph1f" path="res://assets/buttons/egypt_normal.png" id="1_6m5so"]
+[ext_resource type="Texture2D" uid="uid://bde6fyxuxw3t5" path="res://assets/sprites/select screen.png" id="2_7u05y"]
 [ext_resource type="Texture2D" uid="uid://b4yh6a1daytx3" path="res://assets/buttons/egypt_pressed.png" id="2_bb7yj"]
-[ext_resource type="Texture2D" uid="uid://de4in5iskjeks" path="res://assets/buttons/norse_normal.png" id="3_g6qfp"]
-[ext_resource type="Texture2D" uid="uid://c158vrlnkoe25" path="res://assets/buttons/norse_pressed.png" id="4_0a04p"]
-[ext_resource type="Texture2D" uid="uid://cswo2lpdcsycw" path="res://assets/buttons/uncertainty_normal.png" id="5_do00l"]
-[ext_resource type="Texture2D" uid="uid://bglm3yb4b0603" path="res://assets/buttons/uncertainty_pressed.png" id="6_twhk5"]
-[ext_resource type="Texture2D" uid="uid://cbj42vi0whra2" path="res://assets/buttons/random.png" id="7_d4ekp"]
-[ext_resource type="Texture2D" uid="uid://qmpy6w3peg7c" path="res://assets/buttons/random_pressed.png" id="8_drkad"]
+[ext_resource type="Texture2D" uid="uid://dfcb1wrfu2hux" path="res://assets/buttons/selecte.png" id="3_pc42j"]
+[ext_resource type="Texture2D" uid="uid://c1btb8kpoikbv" path="res://assets/buttons/selecte hover.png" id="4_to67t"]
+[ext_resource type="Texture2D" uid="uid://c7atcogkhnlki" path="res://assets/buttons/selectn.png" id="7_rcib8"]
+[ext_resource type="Texture2D" uid="uid://cfch2u2pv37t3" path="res://assets/buttons/selectn hover.png" id="8_6st0v"]
+[ext_resource type="Texture2D" uid="uid://cvbf6rtika22p" path="res://assets/buttons/selecta.png" id="9_bcho6"]
+[ext_resource type="Texture2D" uid="uid://cp02uwh45jjo1" path="res://assets/buttons/selecta hover.png" id="10_a1lwd"]
+[ext_resource type="Texture2D" uid="uid://bg3e453dsw2fg" path="res://assets/buttons/selectr.png" id="11_861oy"]
+[ext_resource type="Texture2D" uid="uid://dh4tekj5hijfw" path="res://assets/buttons/selectr hover.png" id="12_6jmjk"]
 
 [node name="LevelSelectorDemo" type="Control"]
 layout_mode = 3
@@ -22,48 +25,53 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_0a04p")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0.294118, 0.0392157, 0.403922)
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_7u05y")
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.25
-anchor_top = 0.25
-anchor_right = 0.75
-anchor_bottom = 0.75
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -482.5
+offset_top = -198.0
+offset_right = 482.5
+offset_bottom = 102.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 55
 columns = 4
 
 [node name="AncientEgypt" type="TextureButton" parent="GridContainer"]
 layout_mode = 2
-texture_normal = ExtResource("1_6m5so")
-texture_pressed = ExtResource("2_bb7yj")
+texture_normal = ExtResource("3_pc42j")
+texture_hover = ExtResource("4_to67t")
 
 [node name="AncientEgypt2" type="TextureButton" parent="GridContainer"]
+visible = false
 layout_mode = 2
 texture_normal = ExtResource("1_6m5so")
 texture_pressed = ExtResource("2_bb7yj")
 
 [node name="NorseMythology" type="TextureButton" parent="GridContainer"]
 layout_mode = 2
-texture_normal = ExtResource("3_g6qfp")
-texture_pressed = ExtResource("4_0a04p")
+texture_normal = ExtResource("7_rcib8")
+texture_hover = ExtResource("8_6st0v")
 
 [node name="TextureButton3" type="TextureButton" parent="GridContainer"]
 layout_mode = 2
-texture_normal = ExtResource("5_do00l")
-texture_pressed = ExtResource("6_twhk5")
+texture_normal = ExtResource("9_bcho6")
+texture_hover = ExtResource("10_a1lwd")
 
 [node name="RandomLevel" type="TextureButton" parent="GridContainer"]
 layout_mode = 2
-texture_normal = ExtResource("7_d4ekp")
-texture_pressed = ExtResource("8_drkad")
+texture_normal = ExtResource("11_861oy")
+texture_hover = ExtResource("12_6jmjk")
 
 [connection signal="pressed" from="GridContainer/AncientEgypt" to="." method="_on_ancient_egypt_pressed"]
 [connection signal="pressed" from="GridContainer/AncientEgypt2" to="." method="_on_ancient_egypt_2_pressed"]

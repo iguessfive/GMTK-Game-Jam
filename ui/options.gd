@@ -9,4 +9,3 @@ func _on_level_selector_button_pressed() -> void:
 
 func _on_return_button_pressed() -> void:
 	hide()
-	print("sup")

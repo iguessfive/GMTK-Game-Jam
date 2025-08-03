@@ -1,9 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://mafcxi5o3n62"]
+[gd_scene load_steps=8 format=3 uid="uid://mafcxi5o3n62"]
 
 [ext_resource type="Script" uid="uid://xcwdg1mui73h" path="res://ui/options.gd" id="1_ymcv4"]
+[ext_resource type="Texture2D" uid="uid://bw0ca5nw7oxkm" path="res://assets/sprites/options menu bg.png" id="2_bnx2y"]
+[ext_resource type="Texture2D" uid="uid://74md6r5k2yqq" path="res://assets/buttons/level select.png" id="3_e4rtv"]
+[ext_resource type="Texture2D" uid="uid://dfphqdlp1swwc" path="res://assets/buttons/level select hover.png" id="4_63ajr"]
+[ext_resource type="Texture2D" uid="uid://bn36kwqvufo8p" path="res://assets/buttons/return.png" id="5_syd3e"]
+[ext_resource type="Texture2D" uid="uid://bqfopwnr4p82m" path="res://assets/buttons/return hover.png" id="6_ekocp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ymcv4"]
-font_size = 24
+font_size = 32
+font_color = Color(0.67451, 0.54902, 0.372549, 1)
+outline_size = 5
+outline_color = Color(0.32549, 0.239216, 0.129412, 1)
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 0.392157)
 
 [node name="Options" type="Control"]
 layout_mode = 3
@@ -13,21 +23,28 @@ anchor_right = 0.8
 anchor_bottom = 0.8
 script = ExtResource("1_ymcv4")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.0
+offset_top = -185.0
+offset_right = 185.0
+offset_bottom = 185.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_bnx2y")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.382089
-anchor_top = 0.0797325
+anchor_top = 0.146605
 anchor_right = 0.603443
-anchor_bottom = 0.167181
+anchor_bottom = 0.234053
 grow_horizontal = 2
 text = "Option Menu"
 label_settings = SubResource("LabelSettings_ymcv4")
@@ -38,35 +55,45 @@ metadata/_edit_use_anchors_ = true
 [node name="SFXCheckButton" type="CheckButton" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.408855
-anchor_top = 0.242799
-anchor_right = 0.582466
-anchor_bottom = 0.322531
+anchor_left = 0.408854
+anchor_top = 0.263374
+anchor_right = 0.582465
+anchor_bottom = 0.343107
 grow_horizontal = 2
 text = "Mute SFX"
 metadata/_edit_use_anchors_ = true
 
-[node name="LevelSelectorButton" type="Button" parent="."]
+[node name="LevelSelectorButton" type="TextureButton" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.410301
-anchor_top = 0.343106
-anchor_right = 0.576678
-anchor_bottom = 0.42284
-offset_right = 3.05176e-05
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.5
+offset_top = -52.0
+offset_right = 112.5
+offset_bottom = -2.0
 grow_horizontal = 2
-text = "Level Selector"
-metadata/_edit_use_anchors_ = true
+grow_vertical = 2
+texture_normal = ExtResource("3_e4rtv")
+texture_hover = ExtResource("4_63ajr")
 
-[node name="ReturnButton" type="Button" parent="."]
-layout_mode = 0
-anchor_left = 0.453704
-anchor_top = 0.81893
-anchor_right = 0.541956
-anchor_bottom = 0.898663
-offset_right = 3.05176e-05
-text = "Return"
-metadata/_edit_use_anchors_ = true
+[node name="ReturnButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -81.0
+offset_top = -106.0
+offset_right = 81.0
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("5_syd3e")
+texture_hover = ExtResource("6_ekocp")
 
 [connection signal="toggled" from="SFXCheckButton" to="." method="_on_sfx_check_button_toggled"]
 [connection signal="pressed" from="LevelSelectorButton" to="." method="_on_level_selector_button_pressed"]
