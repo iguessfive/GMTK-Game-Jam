@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://o374m3kyeprx"]
+[gd_scene load_steps=17 format=3 uid="uid://o374m3kyeprx"]
 
 [ext_resource type="Script" uid="uid://bmi3pgd3ijev1" path="res://ui/level_selector.gd" id="1_0a04p"]
 [ext_resource type="Texture2D" uid="uid://bde6fyxuxw3t5" path="res://assets/sprites/select screen.png" id="2_7u05y"]
@@ -7,11 +7,21 @@
 [ext_resource type="Texture2D" uid="uid://b4euaxj1dd1qd" path="res://assets/buttons/el1h.png" id="5_7kx4r"]
 [ext_resource type="Texture2D" uid="uid://73mql6itggpk" path="res://assets/buttons/el2.png" id="6_fu10a"]
 [ext_resource type="Texture2D" uid="uid://ckmpj7rqw4810" path="res://assets/buttons/el2h.png" id="7_7u05y"]
+[ext_resource type="Texture2D" uid="uid://c7atcogkhnlki" path="res://assets/buttons/selectn.png" id="7_rcib8"]
 [ext_resource type="Texture2D" uid="uid://ofndsb7ur2yc" path="res://assets/buttons/el3.png" id="8_pc42j"]
+[ext_resource type="Texture2D" uid="uid://cvbf6rtika22p" path="res://assets/buttons/selecta.png" id="9_bcho6"]
 [ext_resource type="Texture2D" uid="uid://cp7rphdqlbs5g" path="res://assets/buttons/el3h.png" id="9_to67t"]
+[ext_resource type="Texture2D" uid="uid://bg3e453dsw2fg" path="res://assets/buttons/selectr.png" id="11_861oy"]
+[ext_resource type="Texture2D" uid="uid://dh4tekj5hijfw" path="res://assets/buttons/selectr hover.png" id="12_6jmjk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vaf6m"]
 size = Vector2(199, 298)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7kx4r"]
+size = Vector2(199, 299)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pc42j"]
+size = Vector2(198, 298)
 
 [node name="LevelSelectorDemo" type="Control"]
 layout_mode = 3
@@ -31,70 +41,131 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("2_7u05y")
 
-[node name="GridContainer" type="GridContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -482.0
-offset_top = -202.0
-offset_right = 483.0
-offset_bottom = 98.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/h_separation = 55
-columns = 4
+[node name="egyptframe" type="Area2D" parent="."]
+position = Vector2(39, 175)
 
-[node name="egyptframe" type="Area2D" parent="GridContainer"]
-position = Vector2(-54.5, 42)
-
-[node name="Sprite2D" type="Sprite2D" parent="GridContainer/egyptframe"]
+[node name="Sprite2D" type="Sprite2D" parent="egyptframe"]
 position = Vector2(154.5, 108)
 texture = ExtResource("3_pc42j")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GridContainer/egyptframe"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="egyptframe"]
 position = Vector2(154.5, 107)
 shape = SubResource("RectangleShape2D_vaf6m")
 
-[node name="egyptcontainer" type="VBoxContainer" parent="GridContainer"]
+[node name="egyptcontainer" type="VBoxContainer" parent="."]
 visible = false
 layout_mode = 2
+offset_left = 93.0
+offset_top = 133.0
+offset_right = 293.0
+offset_bottom = 433.0
 theme_override_constants/separation = 0
 
-[node name="AncientEgypt" type="TextureButton" parent="GridContainer/egyptcontainer"]
+[node name="AncientEgypt" type="TextureButton" parent="egyptcontainer"]
 layout_mode = 2
 size_flags_stretch_ratio = 0.0
 texture_normal = ExtResource("4_vhytd")
 texture_hover = ExtResource("5_7kx4r")
 
-[node name="AncientEgypt2" type="TextureButton" parent="GridContainer/egyptcontainer"]
+[node name="AncientEgypt2" type="TextureButton" parent="egyptcontainer"]
 layout_mode = 2
 texture_normal = ExtResource("6_fu10a")
 texture_hover = ExtResource("7_7u05y")
 
-[node name="AncientEgypt3" type="TextureButton" parent="GridContainer/egyptcontainer"]
+[node name="AncientEgypt3" type="TextureButton" parent="egyptcontainer"]
 layout_mode = 2
 texture_normal = ExtResource("8_pc42j")
 texture_hover = ExtResource("9_to67t")
 
-[node name="norsecontainer" type="VBoxContainer" parent="GridContainer"]
-layout_mode = 2
+[node name="norseframe" type="Area2D" parent="."]
+position = Vector2(100, 133)
 
-[node name="NorseMythology" type="TextureButton" parent="GridContainer/norsecontainer"]
-layout_mode = 2
+[node name="Sprite2D" type="Sprite2D" parent="norseframe"]
+position = Vector2(348, 149)
+texture = ExtResource("7_rcib8")
 
-[node name="alchemycontainer" type="VBoxContainer" parent="GridContainer"]
-layout_mode = 2
+[node name="CollisionShape2D" type="CollisionShape2D" parent="norseframe"]
+position = Vector2(348, 148.5)
+shape = SubResource("RectangleShape2D_7kx4r")
 
-[node name="TextureButton3" type="TextureButton" parent="GridContainer/alchemycontainer"]
-layout_mode = 2
+[node name="norsecontainer" type="VBoxContainer" parent="."]
+visible = false
+offset_left = 348.0
+offset_top = 132.0
+offset_right = 548.0
+offset_bottom = 440.0
+theme_override_constants/separation = 0
 
-[node name="RandomLevel" type="TextureButton" parent="GridContainer"]
+[node name="NorseMythology" type="TextureButton" parent="norsecontainer"]
 layout_mode = 2
+texture_normal = ExtResource("4_vhytd")
+texture_hover = ExtResource("5_7kx4r")
 
-[connection signal="mouse_entered" from="GridContainer/egyptframe" to="." method="_on_egyptframe_mouse_entered"]
-[connection signal="mouse_exited" from="GridContainer/egyptframe" to="." method="_on_egyptframe_mouse_exited"]
-[connection signal="pressed" from="GridContainer/egyptcontainer/AncientEgypt" to="." method="_on_ancient_egypt_pressed"]
-[connection signal="pressed" from="GridContainer/egyptcontainer/AncientEgypt2" to="." method="_on_ancient_egypt_2_pressed"]
+[node name="NorseMythology2" type="TextureButton" parent="norsecontainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_fu10a")
+texture_hover = ExtResource("7_7u05y")
+
+[node name="NorseMythology3" type="TextureButton" parent="norsecontainer"]
+layout_mode = 2
+texture_normal = ExtResource("8_pc42j")
+texture_hover = ExtResource("9_to67t")
+
+[node name="alchemyframe" type="Area2D" parent="."]
+position = Vector2(697, 283)
+
+[node name="Sprite2D" type="Sprite2D" parent="alchemyframe"]
+texture = ExtResource("9_bcho6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="alchemyframe"]
+shape = SubResource("RectangleShape2D_pc42j")
+
+[node name="alchemycontainer" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 2
+offset_left = 597.0
+offset_top = 133.0
+offset_right = 797.0
+offset_bottom = 433.0
+theme_override_constants/separation = 0
+
+[node name="alchemy" type="TextureButton" parent="alchemycontainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_vhytd")
+texture_hover = ExtResource("5_7kx4r")
+
+[node name="alchemy2" type="TextureButton" parent="alchemycontainer"]
+layout_mode = 2
+texture_normal = ExtResource("6_fu10a")
+texture_hover = ExtResource("7_7u05y")
+
+[node name="alchemy3" type="TextureButton" parent="alchemycontainer"]
+layout_mode = 2
+texture_normal = ExtResource("8_pc42j")
+texture_hover = ExtResource("9_to67t")
+
+[node name="RandomLevel" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -308.0
+offset_top = -192.0
+offset_right = -108.0
+offset_bottom = 108.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 8
+texture_normal = ExtResource("11_861oy")
+texture_hover = ExtResource("12_6jmjk")
+
+[connection signal="mouse_entered" from="egyptframe" to="." method="_on_egyptframe_mouse_entered"]
+[connection signal="mouse_exited" from="egyptframe" to="." method="_on_egyptframe_mouse_exited"]
+[connection signal="pressed" from="egyptcontainer/AncientEgypt" to="." method="_on_ancient_egypt_pressed"]
+[connection signal="pressed" from="egyptcontainer/AncientEgypt2" to="." method="_on_ancient_egypt_2_pressed"]
+[connection signal="mouse_entered" from="norseframe" to="." method="_on_norseframe_mouse_entered"]
+[connection signal="mouse_exited" from="norseframe" to="." method="_on_norseframe_mouse_exited"]
+[connection signal="mouse_entered" from="alchemyframe" to="." method="_on_alchemyframe_mouse_entered"]
+[connection signal="mouse_exited" from="alchemyframe" to="." method="_on_alchemyframe_mouse_exited"]

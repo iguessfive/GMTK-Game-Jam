@@ -11,7 +11,20 @@ func _on_ancient_egypt_2_pressed() -> void:
 
 
 func _on_egyptframe_mouse_entered():
-	$GridContainer/egyptcontainer.visible = true
+	$egyptcontainer.visible = true
 	
 func _on_egyptframe_mouse_exited():
-	$GridContainer/egyptcontainer.visible = false
+	$egyptcontainer.visible = false
+
+
+func _on_norseframe_mouse_entered():
+	$norsecontainer.visible = true
+
+func _on_norseframe_mouse_exited():
+	$norsecontainer.visible = false
+
+func _on_alchemyframe_mouse_entered():
+	$alchemycontainer.visible = true
+
+func _on_alchemyframe_mouse_exited():
+	$alchemycontainer.visible = false
