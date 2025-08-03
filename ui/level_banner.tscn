@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://bp370imv75glg"]
+
+[ext_resource type="Script" uid="uid://dmciuxgf7h6bh" path="res://ui/level_banner.gd" id="1_p1jjt"]
+[ext_resource type="Texture2D" uid="uid://dfcb1wrfu2hux" path="res://assets/buttons/selecte.png" id="4_j5cdn"]
+[ext_resource type="Texture2D" uid="uid://c1btb8kpoikbv" path="res://assets/buttons/selecte hover.png" id="5_qk2xd"]
+
+[node name="LevelBanner" type="PanelContainer"]
+anchors_preset = -1
+anchor_right = 0.173611
+anchor_bottom = 0.462963
+offset_right = -200.0
+offset_bottom = -300.0
+size_flags_horizontal = 3
+mouse_filter = 2
+script = ExtResource("1_p1jjt")
+metadata/_edit_use_anchors_ = true
+
+[node name="BannerTexture" type="TextureButton" parent="."]
+layout_mode = 2
+texture_normal = ExtResource("4_j5cdn")
+texture_hover = ExtResource("5_qk2xd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 2
+
+[node name="Level_1" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+stretch_mode = 5
+
+[node name="Level_2" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+stretch_mode = 5
+
+[node name="Level_3" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+stretch_mode = 5
+
+[connection signal="button_down" from="BannerTexture" to="." method="_on_banner_texture_button_down"]
+[connection signal="mouse_exited" from="BannerTexture" to="." method="_on_banner_texture_mouse_exited"]
