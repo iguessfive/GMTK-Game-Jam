@@ -3,7 +3,7 @@ extends Control
 const SPEAKER_ON = preload("res://assets/icons/speaker_on.png")
 const SPEAKER_OFF = preload("res://assets/icons/speaker_off.png")
 
-static var is_muted: bool
+static var is_muted: bool = true
 
 func _ready() -> void:
 	$SFXCheckButton.icon = SPEAKER_OFF if is_muted else SPEAKER_ON
