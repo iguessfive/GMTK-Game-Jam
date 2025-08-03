@@ -67,10 +67,13 @@ texture = ExtResource("2_bnx2y")
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.382089
+anchor_left = 0.356047
 anchor_top = 0.146605
-anchor_right = 0.603443
-anchor_bottom = 0.234053
+anchor_right = 0.629485
+anchor_bottom = 0.259774
+offset_left = 18.0001
+offset_right = -18.0
+offset_bottom = -10.0002
 grow_horizontal = 2
 text = "Option Menu"
 label_settings = SubResource("LabelSettings_ymcv4")
@@ -111,35 +114,31 @@ metadata/_edit_use_anchors_ = true
 
 [node name="LevelSelectorButton" type="TextureButton" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -112.5
-offset_top = -34.0
-offset_right = 112.5
-offset_bottom = 16.0
+anchors_preset = -1
+anchor_left = 0.33724
+anchor_top = 0.412551
+anchor_right = 0.66276
+anchor_bottom = 0.541152
+offset_right = -3.05176e-05
+offset_bottom = 1.52588e-05
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("3_e4rtv")
 texture_hover = ExtResource("4_63ajr")
+metadata/_edit_use_anchors_ = true
 
 [node name="ReturnButton" type="TextureButton" parent="."]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -81.0
-offset_top = -106.0
-offset_right = 81.0
-offset_bottom = -56.0
+anchors_preset = -1
+anchor_left = 0.382812
+anchor_top = 0.727366
+anchor_right = 0.617188
+anchor_bottom = 0.855967
 grow_horizontal = 2
 grow_vertical = 0
 texture_normal = ExtResource("5_syd3e")
 texture_hover = ExtResource("6_ekocp")
+metadata/_edit_use_anchors_ = true
 
 [connection signal="toggled" from="SFXCheckButton" to="." method="_on_sfx_check_button_toggled"]
 [connection signal="pressed" from="LevelSelectorButton" to="." method="_on_level_selector_button_pressed"]
