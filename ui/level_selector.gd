@@ -40,3 +40,7 @@ func _on_alchemy_2_pressed():
 func _on_random_level_pressed() -> void:
 	var random_level = randi_range(0, 4)
 	get_tree().change_scene_to_file(FilePath.LEVEL_PATHS[random_level])
+
+
+func _on_norse_mythology_pressed() -> void:
+	get_tree().change_scene_to_file(FilePath.NORSE_MYTHOLOGY_LEVEL_1)

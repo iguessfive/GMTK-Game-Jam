@@ -183,6 +183,7 @@ bus = &"SFX"
 [connection signal="pressed" from="egyptcontainer/AncientEgypt2" to="." method="_on_ancient_egypt_2_pressed"]
 [connection signal="mouse_entered" from="norseframe" to="." method="_on_norseframe_mouse_entered"]
 [connection signal="mouse_exited" from="norseframe" to="." method="_on_norseframe_mouse_exited"]
+[connection signal="pressed" from="norsecontainer/NorseMythology" to="." method="_on_norse_mythology_pressed"]
 [connection signal="mouse_entered" from="alchemyframe" to="." method="_on_alchemyframe_mouse_entered"]
 [connection signal="mouse_exited" from="alchemyframe" to="." method="_on_alchemyframe_mouse_exited"]
 [connection signal="pressed" from="alchemycontainer/alchemy" to="." method="_on_alchemy_pressed"]
