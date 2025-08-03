@@ -1,19 +1,44 @@
-[gd_scene load_steps=8 format=3 uid="uid://mafcxi5o3n62"]
+[gd_scene load_steps=21 format=3 uid="uid://mafcxi5o3n62"]
 
 [ext_resource type="Script" uid="uid://xcwdg1mui73h" path="res://ui/options.gd" id="1_ymcv4"]
 [ext_resource type="Texture2D" uid="uid://bw0ca5nw7oxkm" path="res://assets/sprites/options menu bg.png" id="2_bnx2y"]
+[ext_resource type="FontFile" uid="uid://cxn2xsos2d0b5" path="res://assets/fonts/pt_serif_regular.ttf" id="3_63ajr"]
 [ext_resource type="Texture2D" uid="uid://74md6r5k2yqq" path="res://assets/buttons/level select.png" id="3_e4rtv"]
 [ext_resource type="Texture2D" uid="uid://dfphqdlp1swwc" path="res://assets/buttons/level select hover.png" id="4_63ajr"]
+[ext_resource type="Texture2D" uid="uid://c2epfytvb2nyt" path="res://assets/icons/speaker_on.png" id="4_syd3e"]
 [ext_resource type="Texture2D" uid="uid://bn36kwqvufo8p" path="res://assets/buttons/return.png" id="5_syd3e"]
 [ext_resource type="Texture2D" uid="uid://bqfopwnr4p82m" path="res://assets/buttons/return hover.png" id="6_ekocp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ymcv4"]
+font = ExtResource("3_63ajr")
 font_size = 32
 font_color = Color(0.67451, 0.54902, 0.372549, 1)
 outline_size = 5
 outline_color = Color(0.32549, 0.239216, 0.129412, 1)
 shadow_size = 10
 shadow_color = Color(0, 0, 0, 0.392157)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gdwlo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tu528"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5kx64"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rcama"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xviem"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_njngp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_63ajr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4wf2p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_syd3e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_713q8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ekocp"]
 
 [node name="Options" type="Control"]
 layout_mode = 3
@@ -22,6 +47,7 @@ anchor_top = 0.2
 anchor_right = 0.8
 anchor_bottom = 0.8
 script = ExtResource("1_ymcv4")
+metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -55,12 +81,32 @@ metadata/_edit_use_anchors_ = true
 [node name="SFXCheckButton" type="CheckButton" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.408854
-anchor_top = 0.263374
-anchor_right = 0.582465
-anchor_bottom = 0.343107
+anchor_left = 0.390625
+anchor_top = 0.285494
+anchor_right = 0.609086
+anchor_bottom = 0.406379
 grow_horizontal = 2
-text = "Mute SFX"
+theme_override_colors/font_disabled_color = Color(0.368627, 0.278431, 0.160784, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.368627, 0.278431, 0.160784, 1)
+theme_override_colors/font_hover_color = Color(0.368627, 0.278431, 0.160784, 1)
+theme_override_colors/font_color = Color(0.368627, 0.278431, 0.160784, 1)
+theme_override_colors/font_focus_color = Color(0.368627, 0.278431, 0.160784, 1)
+theme_override_colors/font_pressed_color = Color(0.368627, 0.278431, 0.160784, 1)
+theme_override_fonts/font = ExtResource("3_63ajr")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_gdwlo")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_tu528")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_5kx64")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_rcama")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_xviem")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_njngp")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_63ajr")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_4wf2p")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_syd3e")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_713q8")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ekocp")
+text = "SFX"
+icon = ExtResource("4_syd3e")
 metadata/_edit_use_anchors_ = true
 
 [node name="LevelSelectorButton" type="TextureButton" parent="."]
@@ -71,9 +117,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -112.5
-offset_top = -52.0
+offset_top = -34.0
 offset_right = 112.5
-offset_bottom = -2.0
+offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("3_e4rtv")
