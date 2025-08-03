@@ -1,4 +1,4 @@
-class_name LevelLayer extends TileMapLayer
+class_name LevelMapLayer extends TileMapLayer
 
 const COMPLETED_COLLECTION = preload("res://assets/sfx/completed_collection.ogg")
 const COMPLETED_LEVEL = preload("res://assets/sfx/completed_level.ogg")
@@ -68,7 +68,7 @@ func end(has_won: bool) -> void: # end level with win or lose condition
 		level_end.dialogue_box.succeeded_text = dialogue_box.succeeded_text
 		level_end.dialogue_box.failed_text = dialogue_box.failed_text
 		level_end.dialogue_box.show_dialogue.emit()
-		print_debug("End menu shown")
+		print_debug("end menu shown")
 
 func cleared_challenge() -> bool:
 	sfx.stream = COMPLETED_COLLECTION

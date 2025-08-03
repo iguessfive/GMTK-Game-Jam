@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://cri47snqk0htp"]
+[gd_scene load_steps=9 format=3 uid="uid://cri47snqk0htp"]
 
 [ext_resource type="Script" uid="uid://cymgqvhwalplt" path="res://ui/start_screen.gd" id="1_50anp"]
-[ext_resource type="PackedScene" uid="uid://o374m3kyeprx" path="res://ui/level_selector.tscn" id="2_nledq"]
-[ext_resource type="Texture2D" uid="uid://dp1uecmbapgjr" path="res://assets/buttons/play button.png" id="3_8cpes"]
-[ext_resource type="Texture2D" uid="uid://cr7m7fu56su0d" path="res://assets/buttons/play button hover.png" id="4_q260t"]
-[ext_resource type="Texture2D" uid="uid://dmjxoq4gm1732" path="res://assets/buttons/options button.png" id="5_tgpwp"]
-[ext_resource type="Texture2D" uid="uid://crffk0o1muybd" path="res://assets/buttons/options button hover.png" id="6_65fpc"]
-[ext_resource type="Texture2D" uid="uid://dcc0hna12bwtd" path="res://assets/sprites/start screen.png" id="7_0gt6g"]
+[ext_resource type="PackedScene" uid="uid://o374m3kyeprx" path="res://ui/level_selector_demo.tscn" id="2_nledq"]
+[ext_resource type="Texture2D" uid="uid://wnpjvm4m7wjg" path="res://assets/sprites/start_screen_background.png" id="3_nledq"]
+[ext_resource type="Texture2D" uid="uid://clcy75ntd4j5d" path="res://assets/buttons/play_normal.png" id="4_a8ycg"]
+[ext_resource type="Texture2D" uid="uid://bl4o2opvqmavo" path="res://assets/buttons/play_hover.png" id="5_7pkrh"]
+[ext_resource type="Texture2D" uid="uid://cn8k8y60b0f32" path="res://assets/buttons/options_normal.png" id="6_8cpes"]
+[ext_resource type="Texture2D" uid="uid://b6h7ro6h5aade" path="res://assets/buttons/options_hover.png" id="7_q260t"]
+[ext_resource type="PackedScene" uid="uid://mafcxi5o3n62" path="res://ui/options.tscn" id="8_tgpwp"]
 
 [node name="StartScreen" type="Control"]
 layout_mode = 3
@@ -18,33 +19,43 @@ grow_vertical = 2
 script = ExtResource("1_50anp")
 level_selector = ExtResource("2_nledq")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 622.0
-offset_top = 24.0
-offset_right = 1217.0
-offset_bottom = 428.0
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_nledq")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-layout_mode = 2
+[node name="PlayButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.53125
+anchor_top = 0.0339506
+anchor_right = 0.965278
+anchor_bottom = 0.342593
+texture_normal = ExtResource("4_a8ycg")
+texture_hover = ExtResource("5_7pkrh")
+metadata/_edit_use_anchors_ = true
 
-[node name="play" type="TextureButton" parent="HBoxContainer/VBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("3_8cpes")
-texture_hover = ExtResource("4_q260t")
-stretch_mode = 4
+[node name="OptionButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.53125
+anchor_top = 0.0324074
+anchor_right = 0.965278
+anchor_bottom = 0.34105
+offset_top = 195.0
+offset_bottom = 195.0
+texture_normal = ExtResource("6_8cpes")
+texture_hover = ExtResource("7_q260t")
+metadata/_edit_use_anchors_ = true
 
-[node name="options" type="TextureButton" parent="HBoxContainer/VBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("5_tgpwp")
-texture_hover = ExtResource("6_65fpc")
+[node name="Menu" type="CanvasLayer" parent="." groups=["menu"]]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -1
+[node name="Options" parent="Menu" instance=ExtResource("8_tgpwp")]
+visible = false
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(576, 324)
-texture = ExtResource("7_0gt6g")
-
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="PlayButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="OptionButton" to="." method="_on_option_button_pressed"]

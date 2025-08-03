@@ -14,7 +14,7 @@ radius = 23.0217
 radius = 23.0217
 
 [node name="Snake" type="CharacterBody2D"]
-collision_mask = 0
+collision_mask = 4
 script = ExtResource("1_i4p4t")
 
 [node name="Head" type="Sprite2D" parent="."]
@@ -42,8 +42,6 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HazardSensor"]
 shape = SubResource("CircleShape2D_7yc6v")
 debug_color = Color(0.796714, 0.219875, 0.182034, 0.337255)
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [connection signal="area_entered" from="Collector" to="." method="_on_collector_area_entered"]
 [connection signal="body_entered" from="HazardSensor" to="." method="_on_hazard_sensor_body_entered"]

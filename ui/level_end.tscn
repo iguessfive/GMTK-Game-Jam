@@ -1,16 +1,22 @@
-[gd_scene load_steps=9 format=3 uid="uid://t6i3xvf8x24f"]
+[gd_scene load_steps=11 format=3 uid="uid://t6i3xvf8x24f"]
 
 [ext_resource type="Script" uid="uid://dtwnjmgfc535n" path="res://ui/level_end.gd" id="1_32sc8"]
+[ext_resource type="Texture2D" uid="uid://byuh0xdvqu2ps" path="res://assets/sprites/level_end_backgrounf.png" id="2_alw8x"]
 [ext_resource type="Script" uid="uid://dee1xxugnplcm" path="res://ui/dialogue_box.gd" id="2_vkghd"]
-[ext_resource type="Texture2D" uid="uid://dwv61w0ms2s06" path="res://assets/sprites/level end.png" id="3_alw8x"]
-[ext_resource type="Texture2D" uid="uid://clh7abranqkk4" path="res://assets/buttons/play again.png" id="4_x37hq"]
-[ext_resource type="Texture2D" uid="uid://e2estg1xn5br" path="res://assets/buttons/play again hover.png" id="5_04fcr"]
-[ext_resource type="Texture2D" uid="uid://cg3nwoqh3n5mx" path="res://assets/buttons/other level.png" id="6_jmck8"]
-[ext_resource type="Texture2D" uid="uid://ddq0kg75nkq0y" path="res://assets/buttons/other level hover.png" id="7_d45wj"]
+[ext_resource type="Theme" uid="uid://r7ky6f4dvnyc" path="res://assets/themes/dialogue_box.tres" id="3_x37hq"]
+[ext_resource type="AudioStream" uid="uid://bwvxuh1fmuprs" path="res://assets/sfx/snake_rattle_sfx.ogg" id="5_jmck8"]
+[ext_resource type="Texture2D" uid="uid://b0oq88is1ofwc" path="res://assets/buttons/play again.png" id="6_04fcr"]
+[ext_resource type="Texture2D" uid="uid://bcr6qa778itlm" path="res://assets/buttons/play again hover.png" id="7_jmck8"]
+[ext_resource type="Texture2D" uid="uid://cvjsktu6s05re" path="res://assets/buttons/other level.png" id="8_d45wj"]
+[ext_resource type="Texture2D" uid="uid://bd2cgqnm4l8f5" path="res://assets/buttons/other level hover.png" id="9_4vd7q"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_blinr"]
 font_size = 32
-font_color = Color(0.333333, 0.247059, 0.133333, 1)
+font_color = Color(0.698039, 0.568627, 0.380392, 1)
+outline_size = 5
+outline_color = Color(0.388235, 0.294118, 0.176471, 1)
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 0.392157)
 
 [node name="EndLevel" type="Control"]
 layout_mode = 3
@@ -18,17 +24,25 @@ anchor_left = 0.2
 anchor_top = 0.2
 anchor_right = 0.8
 anchor_bottom = 0.8
-size_flags_vertical = 4
 script = ExtResource("1_32sc8")
 metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_alw8x")
 
 [node name="ResultLabel" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.255498
-anchor_top = 0.124486
-anchor_right = 0.743056
-anchor_bottom = 0.240226
+anchor_left = 0.251157
+anchor_top = 0.175926
+anchor_right = 0.738715
+anchor_bottom = 0.291667
 grow_horizontal = 2
 text = "Level Cleared / Failed!"
 label_settings = SubResource("LabelSettings_blinr")
@@ -39,52 +53,47 @@ metadata/_edit_use_anchors_ = true
 [node name="DialogueBox" type="RichTextLabel" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.237269
-anchor_top = 0.321502
-anchor_right = 0.769676
-anchor_bottom = 0.439815
+anchor_left = 0.222222
+anchor_top = 0.373971
+anchor_right = 0.754629
+anchor_bottom = 0.492284
+theme = ExtResource("3_x37hq")
 bbcode_enabled = true
 text = "Fail or Success Text"
 fit_content = true
 script = ExtResource("2_vkghd")
+is_level_entry_dialogue = false
+voice_stream = ExtResource("5_jmck8")
 start_text = "
 "
 metadata/_edit_use_anchors_ = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -1
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(575, 301)
-texture = ExtResource("3_alw8x")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="PlayAgainButton" type="TextureButton" parent="."]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -87.5
-offset_top = -159.0
-offset_right = 87.5
-offset_bottom = -47.0
-grow_horizontal = 2
-grow_vertical = 0
+anchors_preset = -1
+anchor_left = 0.335069
+anchor_top = 0.603292
+anchor_right = 0.732585
+anchor_bottom = 0.731481
+offset_top = -0.159805
+offset_right = -49.763
+offset_bottom = 3.05176e-05
+texture_normal = ExtResource("6_04fcr")
+texture_hover = ExtResource("7_jmck8")
+metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-layout_mode = 2
-
-[node name="play again" type="TextureButton" parent="HBoxContainer/VBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("4_x37hq")
-texture_hover = ExtResource("5_04fcr")
-
-[node name="other level" type="TextureButton" parent="HBoxContainer/VBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("6_jmck8")
-texture_hover = ExtResource("7_d45wj")
+[node name="LevelSelectorButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.333623
+anchor_top = 0.73149
+anchor_right = 0.731403
+anchor_bottom = 0.860082
+offset_top = -0.00314331
+offset_right = -49.9459
+texture_normal = ExtResource("8_d45wj")
+texture_hover = ExtResource("9_4vd7q")
+metadata/_edit_use_anchors_ = true
 
 [connection signal="show_dialogue" from="DialogueBox" to="." method="_on_dialogue_box_show_dialogue"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/play again" to="." method="_on_play_again_pressed"]
-[connection signal="pressed" from="HBoxContainer/VBoxContainer/other level" to="." method="_on_other_level_pressed"]
+[connection signal="pressed" from="LevelSelectorButton" to="." method="_on_level_selector_button_pressed"]

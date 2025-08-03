@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var speed: float = 200.0
 @export var grid_size: float = 64.0
-@export var level: TileMapLayer
+@export var map: TileMapLayer
 @export var hazards: TileMapLayer
 
 var direction := Vector2()
@@ -16,8 +16,8 @@ var distance_moved := 0.0
 @onready var collector := $Collector
 
 func _ready() -> void:
-	if level != null:
-		level.add_travelled_tile(global_position)
+	if map != null:
+		map.add_travelled_tile(global_position)
 
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
@@ -55,7 +55,7 @@ func _physics_process(delta: float) -> void:
 		distance_moved = 0.0
 		has_moved_finished = true
 		direction = Vector2.ZERO
-		level.add_travelled_tile(global_position) # record the tile travelled
+		map.add_travelled_tile(global_position) # record the tile travelled
 
 	if direction.length() > 0:
 		move_and_slide()
@@ -74,18 +74,18 @@ func _input(event: InputEvent) -> void:
 func _on_collector_area_entered(area: Area2D) -> void:
 	if area.is_in_group("collectible"):
 		area.destroy()  # handle pickups specific logic, sfx, animation, etc.
-		# if all items are collected, you can allow for level completion
-		level.collect()
-		print(level.get_collectible_count())
-		if level.get_collectible_count() == 0:
+		# if all items are collected, you can allow for map completion
+		map.collect()
+		print(map.get_collectible_count())
+		if map.get_collectible_count() == 0:
 			print_debug("You can win now, all pickups collected!")
-			level.can_win = true
-			level.cleared_challenge() # once all items are collected
+			map.can_win = true
+			map.cleared_challenge() # once all items are collected
 
 func _on_hazard_sensor_body_entered(body: Node2D) -> void:
 	if body.is_in_group("hazards"):
 		print_debug("You have entered a hazard area!")
-		level.end(false)  # loss on hazard collision
+		map.end(false)  # loss on hazard collision
 
 func disble_input() -> void:
 	set_physics_process(false)
