@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=4 uid="uid://o38adkcnagjw"]
+
+[ext_resource type="PackedScene" uid="uid://ji5r8a0i4r1p" path="res://levels/map.tscn" id="1_x0dbk"]
+[ext_resource type="PackedScene" uid="uid://bomryssos12v2" path="res://gameplay/snake.tscn" id="2_gr62q"]
+[ext_resource type="PackedScene" uid="uid://dytji4fbl8oc1" path="res://collectibles/spider.tscn" id="2_j32b2"]
+[ext_resource type="PackedScene" uid="uid://bs70d2cpeeq0w" path="res://ui/menu.tscn" id="3_j32b2"]
+[ext_resource type="Script" uid="uid://dee1xxugnplcm" path="res://ui/dialogue_box.gd" id="4_e8sij"]
+[ext_resource type="AudioStream" uid="uid://bwvxuh1fmuprs" path="res://assets/sfx/snake_rattle_sfx.ogg" id="5_y7vjm"]
+
+[node name="Level1" type="Node2D"]
+
+[node name="Map" parent="." node_paths=PackedStringArray("player_reference", "collectible_manager", "dialogue_box") instance=ExtResource("1_x0dbk")]
+tile_map_data = PackedByteArray("AAAFAAYAAAADAAAAAAAFAAUAAAADAAAAAAAFAAQAAAADAAAAAAAFAAMAAAADAAAAAAAGAAMAAAADAAAAAAAHAAMAAAADAAAAAAAIAAMAAAADAAAAAAAIAAQAAAADAAAAAAAJAAQAAAADAAAAAAAKAAQAAAADAAAAAAAKAAUAAAADAAAAAAAKAAYAAAADAAAAAAAJAAYAAAADAAAAAAAIAAYAAAADAAAAAAAHAAYAAAADAAAAAAAGAAYAAAADAAAAAAA=")
+player_reference = NodePath("../Snake")
+collectible_manager = NodePath("CollectibleManger")
+dialogue_box = NodePath("../Snake/Menu/DialogueBox")
+
+[node name="ColorRect" parent="Map/CanvasLayer" index="0"]
+color = Color(0.285321, 0.522758, 0.751298, 1)
+
+[node name="Collectibles" parent="Map/CollectibleManger" index="0" instance=ExtResource("2_j32b2")]
+position = Vector2(352, 224)
+
+[node name="Collectibles2" parent="Map/CollectibleManger" index="1" instance=ExtResource("2_j32b2")]
+position = Vector2(672, 416)
+
+[node name="HazardLayer" parent="Map" index="2"]
+tile_map_data = PackedByteArray("AAAFAAcAAAABAAQAAAAGAAcAAAABAAQAAAAHAAcAAAABAAQAAAAIAAcAAAABAAQAAAAJAAcAAAABAAQAAAAKAAcAAAABAAQAAAALAAcAAAABAAQAAAALAAYAAAABAAQAAAALAAUAAAABAAQAAAALAAQAAAABAAQAAAALAAMAAAABAAQAAAAKAAMAAAABAAQAAAAJAAMAAAABAAQAAAAJAAIAAAABAAQAAAAIAAIAAAABAAQAAAAHAAIAAAABAAQAAAAGAAIAAAABAAQAAAAFAAIAAAABAAQAAAAEAAIAAAABAAQAAAAEAAMAAAABAAQAAAAEAAQAAAABAAQAAAAEAAUAAAABAAQAAAAEAAYAAAABAAQAAAAEAAcAAAABAAQAAAAGAAUAAAABAAQAAAAGAAQAAAABAAQAAAAHAAUAAAABAAQAAAAIAAUAAAABAAQAAAAJAAUAAAABAAQAAAAHAAQAAAABAAQAAAA=")
+
+[node name="Snake" parent="." node_paths=PackedStringArray("map", "hazards") instance=ExtResource("2_gr62q")]
+position = Vector2(352, 416)
+map = NodePath("../Map")
+hazards = NodePath("../Map/HazardLayer")
+
+[node name="Menu" parent="Snake" instance=ExtResource("3_j32b2")]
+
+[node name="DialogueBox" type="RichTextLabel" parent="Snake/Menu"]
+anchors_preset = -1
+anchor_left = 0.0555556
+anchor_top = 0.0493827
+anchor_right = 0.305556
+anchor_bottom = 0.148148
+script = ExtResource("4_e8sij")
+voice_stream = ExtResource("5_y7vjm")
+start_text = "Begin"
+failed_text = "Fail"
+succeeded_text = "Well done"
+metadata/_custom_type_script = "uid://dee1xxugnplcm"
+metadata/_edit_use_anchors_ = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+
+[editable path="Map"]
