@@ -59,6 +59,7 @@ position = Vector2(154.5, 107)
 shape = SubResource("RectangleShape2D_vaf6m")
 
 [node name="egyptcontainer" type="VBoxContainer" parent="GridContainer"]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 0
 
