@@ -1,18 +1,31 @@
-[gd_scene load_steps=17 format=3 uid="uid://o374m3kyeprx"]
+[gd_scene load_steps=30 format=3 uid="uid://o374m3kyeprx"]
 
 [ext_resource type="Script" uid="uid://bmi3pgd3ijev1" path="res://ui/level_selector.gd" id="1_0a04p"]
 [ext_resource type="Texture2D" uid="uid://bde6fyxuxw3t5" path="res://assets/sprites/select screen.png" id="2_7u05y"]
 [ext_resource type="Texture2D" uid="uid://dfcb1wrfu2hux" path="res://assets/buttons/selecte.png" id="3_pc42j"]
-[ext_resource type="Texture2D" uid="uid://cudd6px8iigqf" path="res://assets/buttons/el1.png" id="4_vhytd"]
-[ext_resource type="Texture2D" uid="uid://b4euaxj1dd1qd" path="res://assets/buttons/el1h.png" id="5_7kx4r"]
-[ext_resource type="Texture2D" uid="uid://73mql6itggpk" path="res://assets/buttons/el2.png" id="6_fu10a"]
-[ext_resource type="Texture2D" uid="uid://ckmpj7rqw4810" path="res://assets/buttons/el2h.png" id="7_7u05y"]
+[ext_resource type="Texture2D" uid="uid://g5vugbc07uri" path="res://assets/icons/el1.png" id="4_6jmjk"]
+[ext_resource type="Texture2D" uid="uid://c1bsbecw065xu" path="res://assets/icons/el1h.png" id="5_qwjfk"]
+[ext_resource type="Texture2D" uid="uid://da450f181muv5" path="res://assets/icons/el2.png" id="6_c1bid"]
 [ext_resource type="Texture2D" uid="uid://c7atcogkhnlki" path="res://assets/buttons/selectn.png" id="7_rcib8"]
-[ext_resource type="Texture2D" uid="uid://ofndsb7ur2yc" path="res://assets/buttons/el3.png" id="8_pc42j"]
+[ext_resource type="Texture2D" uid="uid://cp1poo3xcnbq3" path="res://assets/icons/el2h.png" id="7_ycqva"]
+[ext_resource type="Texture2D" uid="uid://bwdtxya2dyi3n" path="res://assets/icons/el3.png" id="8_gwfef"]
 [ext_resource type="Texture2D" uid="uid://cvbf6rtika22p" path="res://assets/buttons/selecta.png" id="9_bcho6"]
-[ext_resource type="Texture2D" uid="uid://cp7rphdqlbs5g" path="res://assets/buttons/el3h.png" id="9_to67t"]
+[ext_resource type="Texture2D" uid="uid://eakxsf54blei" path="res://assets/icons/el3h.png" id="9_ccm6s"]
 [ext_resource type="Texture2D" uid="uid://bg3e453dsw2fg" path="res://assets/buttons/selectr.png" id="11_861oy"]
+[ext_resource type="Texture2D" uid="uid://cmgkkji7b6rw7" path="res://assets/icons/nl1.png" id="11_ke7oa"]
+[ext_resource type="Texture2D" uid="uid://cklx04t4m4wh4" path="res://assets/icons/nl1h.png" id="12_4rfoi"]
 [ext_resource type="Texture2D" uid="uid://dh4tekj5hijfw" path="res://assets/buttons/selectr hover.png" id="12_6jmjk"]
+[ext_resource type="Texture2D" uid="uid://l372y3o5ixyp" path="res://assets/icons/nl2.png" id="13_ntvj0"]
+[ext_resource type="Texture2D" uid="uid://bxyr1xl532543" path="res://assets/icons/nl2h.png" id="14_pmusf"]
+[ext_resource type="AudioStream" uid="uid://cqcsohgmdodwa" path="res://assets/sfx/pop.mp3" id="14_to67t"]
+[ext_resource type="Texture2D" uid="uid://uauncdr6gvhs" path="res://assets/icons/nl3.png" id="15_5acns"]
+[ext_resource type="Texture2D" uid="uid://bidw4dxau7p8q" path="res://assets/icons/nl3h.png" id="16_8g64a"]
+[ext_resource type="Texture2D" uid="uid://ddgv4yurilx5i" path="res://assets/icons/al1.png" id="18_ke7oa"]
+[ext_resource type="Texture2D" uid="uid://ctiv48rtjuand" path="res://assets/icons/al1h.png" id="19_4rfoi"]
+[ext_resource type="Texture2D" uid="uid://cfwr2sh1inbt4" path="res://assets/icons/al2.png" id="20_ntvj0"]
+[ext_resource type="Texture2D" uid="uid://b7e5k6pas5o4h" path="res://assets/icons/al2h.png" id="21_pmusf"]
+[ext_resource type="Texture2D" uid="uid://dh0b0xd5uwu1x" path="res://assets/icons/al3.png" id="22_ke7oa"]
+[ext_resource type="Texture2D" uid="uid://cb8g3iv6udtrs" path="res://assets/icons/al3h.png" id="23_4rfoi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vaf6m"]
 size = Vector2(199, 298)
@@ -64,18 +77,18 @@ theme_override_constants/separation = 0
 [node name="AncientEgypt" type="TextureButton" parent="egyptcontainer"]
 layout_mode = 2
 size_flags_stretch_ratio = 0.0
-texture_normal = ExtResource("4_vhytd")
-texture_hover = ExtResource("5_7kx4r")
+texture_normal = ExtResource("4_6jmjk")
+texture_hover = ExtResource("5_qwjfk")
 
 [node name="AncientEgypt2" type="TextureButton" parent="egyptcontainer"]
 layout_mode = 2
-texture_normal = ExtResource("6_fu10a")
-texture_hover = ExtResource("7_7u05y")
+texture_normal = ExtResource("6_c1bid")
+texture_hover = ExtResource("7_ycqva")
 
 [node name="AncientEgypt3" type="TextureButton" parent="egyptcontainer"]
 layout_mode = 2
-texture_normal = ExtResource("8_pc42j")
-texture_hover = ExtResource("9_to67t")
+texture_normal = ExtResource("8_gwfef")
+texture_hover = ExtResource("9_ccm6s")
 
 [node name="norseframe" type="Area2D" parent="."]
 position = Vector2(100, 133)
@@ -99,18 +112,18 @@ theme_override_constants/separation = 0
 
 [node name="NorseMythology" type="TextureButton" parent="norsecontainer"]
 layout_mode = 2
-texture_normal = ExtResource("4_vhytd")
-texture_hover = ExtResource("5_7kx4r")
+texture_normal = ExtResource("11_ke7oa")
+texture_hover = ExtResource("12_4rfoi")
 
 [node name="NorseMythology2" type="TextureButton" parent="norsecontainer"]
 layout_mode = 2
-texture_normal = ExtResource("6_fu10a")
-texture_hover = ExtResource("7_7u05y")
+texture_normal = ExtResource("13_ntvj0")
+texture_hover = ExtResource("14_pmusf")
 
 [node name="NorseMythology3" type="TextureButton" parent="norsecontainer"]
 layout_mode = 2
-texture_normal = ExtResource("8_pc42j")
-texture_hover = ExtResource("9_to67t")
+texture_normal = ExtResource("15_5acns")
+texture_hover = ExtResource("16_8g64a")
 
 [node name="alchemyframe" type="Area2D" parent="."]
 position = Vector2(697, 283)
@@ -132,18 +145,18 @@ theme_override_constants/separation = 0
 
 [node name="alchemy" type="TextureButton" parent="alchemycontainer"]
 layout_mode = 2
-texture_normal = ExtResource("4_vhytd")
-texture_hover = ExtResource("5_7kx4r")
+texture_normal = ExtResource("18_ke7oa")
+texture_hover = ExtResource("19_4rfoi")
 
 [node name="alchemy2" type="TextureButton" parent="alchemycontainer"]
 layout_mode = 2
-texture_normal = ExtResource("6_fu10a")
-texture_hover = ExtResource("7_7u05y")
+texture_normal = ExtResource("20_ntvj0")
+texture_hover = ExtResource("21_pmusf")
 
 [node name="alchemy3" type="TextureButton" parent="alchemycontainer"]
 layout_mode = 2
-texture_normal = ExtResource("8_pc42j")
-texture_hover = ExtResource("9_to67t")
+texture_normal = ExtResource("22_ke7oa")
+texture_hover = ExtResource("23_4rfoi")
 
 [node name="RandomLevel" type="TextureButton" parent="."]
 layout_mode = 1
@@ -162,6 +175,11 @@ size_flags_horizontal = 8
 texture_normal = ExtResource("11_861oy")
 texture_hover = ExtResource("12_6jmjk")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_to67t")
+volume_db = -10.0
+bus = &"SFX"
+
 [connection signal="mouse_entered" from="egyptframe" to="." method="_on_egyptframe_mouse_entered"]
 [connection signal="mouse_exited" from="egyptframe" to="." method="_on_egyptframe_mouse_exited"]
 [connection signal="pressed" from="egyptcontainer/AncientEgypt" to="." method="_on_ancient_egypt_pressed"]
@@ -170,3 +188,4 @@ texture_hover = ExtResource("12_6jmjk")
 [connection signal="mouse_exited" from="norseframe" to="." method="_on_norseframe_mouse_exited"]
 [connection signal="mouse_entered" from="alchemyframe" to="." method="_on_alchemyframe_mouse_entered"]
 [connection signal="mouse_exited" from="alchemyframe" to="." method="_on_alchemyframe_mouse_exited"]
+[connection signal="pressed" from="alchemycontainer/alchemy" to="." method="_on_alchemy_pressed"]

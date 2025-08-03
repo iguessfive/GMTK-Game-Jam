@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6lq0y2xdp8h8"]
+
+[ext_resource type="AudioStream" uid="uid://blb6hccpppqg4" path="res://assets/sfx/fairy-tale-fairy-flute-2585.mp3" id="1_3lft1"]
+
+[node name="bgmusic" type="AudioStreamPlayer"]
+stream = ExtResource("1_3lft1")
+volume_db = -10.0
+autoplay = true
+parameters/looping = true
