@@ -1,9 +1,7 @@
 extends Control
 
-@export var level_selector: PackedScene
-
 func _on_start_button_pressed() -> void:
-	get_tree().change_scene_to_packed(level_selector)
+	get_tree().change_scene_to_file(FilePath.LEVEL_SELECTOR)
 
 func _on_option_button_pressed() -> void:
 	get_options().show()

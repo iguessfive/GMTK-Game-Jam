@@ -22,7 +22,7 @@ buses/default_bus_layout="uid://bos535tfrf52v"
 [autoload]
 
 FilePath="*res://autoloads/file_path.gd"
-Bgmusic="*res://assets/sfx/bgmusic.tscn"
+BGMusic="*res://autoloads/bg_music.tscn"
 
 [global_group]
 

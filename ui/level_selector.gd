@@ -35,3 +35,8 @@ func _on_alchemy_pressed():
 
 func _on_alchemy_2_pressed():
 	get_tree().change_scene_to_file(FilePath.ALCHEMY_LEVEL_2)
+
+
+func _on_random_level_pressed() -> void:
+	var random_level = randi_range(0, 4)
+	get_tree().change_scene_to_file(FilePath.LEVEL_PATHS[random_level])
