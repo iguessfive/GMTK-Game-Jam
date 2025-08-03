@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://ji5r8a0i4r1p"]
+
+[ext_resource type="Script" uid="uid://cvnudra0dylww" path="res://gameplay/level_layer.gd" id="1_2byen"]
+[ext_resource type="TileSet" uid="uid://cysm6qcn1v41p" path="res://assets/tile_sets/lore_inspired_tiles.tres" id="1_yv6ss"]
+[ext_resource type="PackedScene" uid="uid://dvg4wjmxfbnb1" path="res://gameplay/collectible_manger.tscn" id="3_i7xry"]
+[ext_resource type="PackedScene" uid="uid://brkpuxeqb8xmg" path="res://gameplay/hazard_layer.tscn" id="5_i7xry"]
+
+[node name="Map" type="TileMapLayer"]
+tile_set = ExtResource("1_yv6ss")
+script = ExtResource("1_2byen")
+metadata/_custom_type_script = "uid://cvnudra0dylww"
+metadata/_edit_lock_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -5
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.470588)
+metadata/_edit_lock_ = true
+
+[node name="CollectibleManger" parent="." instance=ExtResource("3_i7xry")]
+
+[node name="HazardLayer" parent="." instance=ExtResource("5_i7xry")]
+tile_set = ExtResource("1_yv6ss")
+metadata/_edit_lock_ = true
