@@ -90,6 +90,7 @@ shape = SubResource("RectangleShape2D_7kx4r")
 
 [node name="norsecontainer" type="VBoxContainer" parent="."]
 visible = false
+layout_mode = 0
 offset_left = 348.0
 offset_top = 132.0
 offset_right = 548.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cri47snqk0htp"]
+[gd_scene load_steps=11 format=3 uid="uid://cri47snqk0htp"]
 
 [ext_resource type="Script" uid="uid://cymgqvhwalplt" path="res://ui/start_screen.gd" id="1_50anp"]
 [ext_resource type="PackedScene" uid="uid://o374m3kyeprx" path="res://ui/level_selector_demo.tscn" id="2_nledq"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://cn8k8y60b0f32" path="res://assets/buttons/options_normal.png" id="6_8cpes"]
 [ext_resource type="Texture2D" uid="uid://b6h7ro6h5aade" path="res://assets/buttons/options_hover.png" id="7_q260t"]
 [ext_resource type="PackedScene" uid="uid://mafcxi5o3n62" path="res://ui/options.tscn" id="8_tgpwp"]
+[ext_resource type="AudioStream" uid="uid://blb6hccpppqg4" path="res://assets/sfx/fairy-tale-fairy-flute-2585.mp3" id="9_tgpwp"]
+[ext_resource type="AudioStream" uid="uid://cqcsohgmdodwa" path="res://assets/sfx/pop.mp3" id="10_65fpc"]
 
 [node name="StartScreen" type="Control"]
 layout_mode = 3
@@ -57,5 +59,17 @@ metadata/_edit_use_anchors_ = true
 [node name="Options" parent="Menu" instance=ExtResource("8_tgpwp")]
 visible = false
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_tgpwp")
+volume_db = -20.0
+autoplay = true
+parameters/looping = true
+
+[node name="buttonsoundeffect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_65fpc")
+volume_db = -10.0
+
+[connection signal="mouse_entered" from="PlayButton" to="." method="_on_play_button_mouse_entered"]
 [connection signal="pressed" from="PlayButton" to="." method="_on_start_button_pressed"]
+[connection signal="mouse_entered" from="OptionButton" to="." method="_on_option_button_mouse_entered"]
 [connection signal="pressed" from="OptionButton" to="." method="_on_option_button_pressed"]

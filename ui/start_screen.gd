@@ -19,3 +19,9 @@ func get_options() -> Control:
 	var menu = get_tree().get_first_node_in_group("menu")
 	var options = menu.get_node("Options")
 	return options
+
+func _on_play_button_mouse_entered():
+	$buttonsoundeffect.play()
+
+func _on_option_button_mouse_entered():
+	$buttonsoundeffect.play()
