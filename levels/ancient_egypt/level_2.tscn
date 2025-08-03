@@ -47,7 +47,7 @@ script = ExtResource("4_ir6w4")
 voice_stream = ExtResource("6_8pe28")
 start_text = "A task given to succeed means echoing in eternity"
 failed_text = "Denied by the fates"
-succeeded_text = "Another path forged so as thing began they do so end."
+succeeded_text = "Another path forged so as things began they do so end."
 metadata/_custom_type_script = "uid://dee1xxugnplcm"
 metadata/_edit_use_anchors_ = true
 
